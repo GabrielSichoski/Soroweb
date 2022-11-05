@@ -34,7 +34,7 @@ public class Login extends javax.swing.JFrame {
         pwdSenha = new javax.swing.JPasswordField();
         cbSalvarSenha1 = new javax.swing.JCheckBox();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_entrar = new javax.swing.JButton();
         lblInaConta1 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
@@ -137,12 +137,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_entrar.setBackground(new java.awt.Color(255, 102, 51));
+        btn_entrar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        btn_entrar.setText("Entrar");
+        btn_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_entrarActionPerformed(evt);
             }
         });
 
@@ -177,7 +177,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(txtUsuario1)
                     .addComponent(jLabel1)
                     .addComponent(pwdSenha)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_entrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -194,7 +194,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(cbSalvarSenha1)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btn_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblInaConta1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,10 +271,11 @@ public class Login extends javax.swing.JFrame {
         Login.this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void btn_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_entrarActionPerformed
+        InformacoesPessoais info = new InformacoesPessoais();
+        info.setVisible(true);
         Login.this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_entrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,10 +314,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_entrar;
     private javax.swing.JButton btxEntrar;
     private javax.swing.JCheckBox cbSalvarSenha;
     private javax.swing.JCheckBox cbSalvarSenha1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JColorChooser jColorChooser1;
     private javax.swing.JColorChooser jColorChooser2;
