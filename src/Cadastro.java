@@ -160,6 +160,11 @@ public class Cadastro extends javax.swing.JFrame {
 
         cbxCargp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxCargp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Agiota", "Endividado" }));
+        cbxCargp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxCargpActionPerformed(evt);
+            }
+        });
 
         btnCadastroLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
         btnCadastroLimpar.setText("Limpar");
@@ -478,6 +483,10 @@ public class Cadastro extends javax.swing.JFrame {
         new Login().setVisible(true);
         Cadastro.this.dispose();
     }//GEN-LAST:event_btnCadastroCadastro1ActionPerformed
+
+    private void cbxCargpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCargpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxCargpActionPerformed
 
     /**
      * @param args the command line arguments
