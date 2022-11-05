@@ -67,7 +67,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel1.setBackground(new java.awt.Color(97, 150, 150));
         jPanel1.setForeground(new java.awt.Color(255, 102, 51));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -90,74 +90,84 @@ public class Cadastro extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Informações Pessoais");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nome Completo");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("RG");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("E-Mail\n");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CPF");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Telefone\n");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Estado\n");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Numero");
 
+        cbxEstado.setBackground(new java.awt.Color(204, 204, 204));
         cbxEstado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Senha\n");
 
+        txtCadastroNome.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtCadastroCpf.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtCadastroRG.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Repita a Senha");
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Cidade");
 
+        jPassword.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtCadastroEmail.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtCadastroTelef.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtCadastroCidade.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Rua");
 
+        txtCadastroRua.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("CEP");
 
+        txtCadastroCEP.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtCadastroNumero.setBackground(new java.awt.Color(204, 204, 204));
+
+        jPasswordRepita.setBackground(new java.awt.Color(204, 204, 204));
+
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Sexo");
 
+        cbxCadastroSexo.setBackground(new java.awt.Color(204, 204, 204));
         cbxCadastroSexo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxCadastroSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Masculino", "Femenino", "Outros" }));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Cargo");
 
+        cbxCargp.setBackground(new java.awt.Color(204, 204, 204));
         cbxCargp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cbxCargp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Agiota", "Endividado" }));
         cbxCargp.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +176,7 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        btnCadastroLimpar.setBackground(new java.awt.Color(97, 150, 150));
         btnCadastroLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
         btnCadastroLimpar.setText("Limpar");
         btnCadastroLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +185,7 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
+        btnCadastroCadastro.setBackground(new java.awt.Color(97, 150, 150));
         btnCadastroCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
         btnCadastroCadastro.setText("Cadastrar");
         btnCadastroCadastro.addActionListener(new java.awt.event.ActionListener() {

@@ -79,7 +79,7 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 51));
+        jPanel1.setBackground(new java.awt.Color(97, 150, 150));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,18 +92,20 @@ public class Login extends javax.swing.JFrame {
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtUsuario1.setBackground(new java.awt.Color(204, 204, 204));
         txtUsuario1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         txtUsuario1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtUsuario1.setText("Usuário ou E-mail");
         txtUsuario1.setBorder(null);
         txtUsuario1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ENTRAR");
 
+        pwdSenha.setBackground(new java.awt.Color(204, 204, 204));
         pwdSenha.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         pwdSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pwdSenha.setText("Senha");
@@ -119,7 +121,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         cbSalvarSenha1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        cbSalvarSenha1.setForeground(new java.awt.Color(255, 255, 255));
         cbSalvarSenha1.setText("Salvar Informações");
         cbSalvarSenha1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +129,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Esqueceu sua senha?");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,7 +137,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        btn_entrar.setBackground(new java.awt.Color(255, 102, 51));
+        btn_entrar.setBackground(new java.awt.Color(97, 150, 150));
         btn_entrar.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         btn_entrar.setText("Entrar");
         btn_entrar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,11 +147,8 @@ public class Login extends javax.swing.JFrame {
         });
 
         lblInaConta1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        lblInaConta1.setForeground(new java.awt.Color(255, 255, 255));
         lblInaConta1.setText("Não possui conta?");
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Criar Nova Conta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
