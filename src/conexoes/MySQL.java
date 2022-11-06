@@ -24,9 +24,9 @@ public class MySQL {
     private ResultSet resultSet;
     
     private String servidor = "localhost:3306";
-    private String nomeDoBanco = "banco_loja";
+    private String nomeDoBanco = "LinguagemProgramacao";
     private String usuario = "root";
-    private String senha = "aulasDB_2022";
+    private String senha = "fek123";
     
     //Construtor    
     public MySQL(){
