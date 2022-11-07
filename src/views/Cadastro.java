@@ -1,3 +1,5 @@
+package views;
+
 
 
 import classes.Cliente;
@@ -385,7 +387,7 @@ public class Cadastro extends javax.swing.JFrame {
         novo.setCargo(String.valueOf(cbxCargp.getSelectedItem()));
         
         try{
-            var query = "INSERT INTO `cliente_agiota`("
+            var query = "INSERT INTO `Cliente`("
                     +"nome,"
                     +"rg,"
                     +"email,"

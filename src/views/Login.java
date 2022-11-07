@@ -1,3 +1,9 @@
+package views;
+
+
+import views.InformacoesPessoais;
+import views.Cadastro;
+
 
 
 
@@ -52,7 +58,6 @@ public class Login extends javax.swing.JFrame {
         pwdSenha1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pwdSenha1.setText("Senha");
         pwdSenha1.setBorder(null);
-        pwdSenha1.setEchoChar('*');
         pwdSenha1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 pwdSenha1FocusGained(evt);
@@ -246,7 +251,6 @@ public class Login extends javax.swing.JFrame {
         pwdSenha.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         pwdSenha.setText("Senha");
         pwdSenha.setBorder(null);
-        pwdSenha.setEchoChar('*');
         pwdSenha.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 pwdSenhaFocusGained(evt);
