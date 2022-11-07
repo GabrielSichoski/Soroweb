@@ -412,19 +412,8 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         String consultaCpf = this.txtInformacoesCPF.getText ();
         
         try{
-            var buscarCliente = "SELECT"
-                    +"cpf,"
-                    +"nome,"
-                    +"email,"
-                    +"sexo,"
-                    +"telefone,"
-                    +"estado,"
-                    +"cidade,"
-                    +"rua,"    
-                    +"cep,"
-                    +"cargo,"
-                    + " WHERE "
-                        + " cpf = '" + consultaCpf + "';"
+            var buscarCliente = "SELECT cpf,nome,email,sexo,telefone,estado,cidade,rua,cep,cargo,senha from Cliente"
+                    + " WHERE cpf = '" + consultaCpf + "';"
                     ;
             
             this.conectar.executarSQL (buscarCliente);
@@ -440,6 +429,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                 novoCliente.setRua(this.conectar.getResultSet().getString(8));
                 novoCliente.setCep(this.conectar.getResultSet().getString(9));
                 novoCliente.setCargo(this.conectar.getResultSet().getString(10));
+                novoCliente.setSenha(this.conectar.getResultSet().getString(11));
             }
             if (novoCliente.getCpf() == ""){
                 JOptionPane.showMessageDialog(null, "Cliente não encontrado!");
@@ -460,6 +450,8 @@ public class InformacoesPessoais extends javax.swing.JFrame {
             txtInformacoesSenha.setText(novoCliente.getRua());
             txtInformacoesCep.setText(novoCliente.getCep());
             txtInformacoesCargo.setText(novoCliente.getCargo());
+            txtInformacoesRua1.setText(novoCliente.getRua());
+            txtInformacoesSenha.setText(novoCliente.getSenha());
             this.conectar.fechaBanco();
         } 
         
