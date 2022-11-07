@@ -1,7 +1,9 @@
 package views;
 
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -47,6 +49,11 @@ public class Loading extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Carregando...");
         jLabel1.setAlignmentX(0.5F);
+
+        Progresso.setBackground(new java.awt.Color(51, 153, 255));
+        Progresso.setBorder(null);
+        Progresso.setBorderPainted(false);
+        Progresso.setFocusable(false);
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -138,7 +145,7 @@ public class Loading extends javax.swing.JFrame {
         Loading loading = new Loading();
         loading.setVisible(true);
         try{
-            for(int i = 0; i <= 100; i++){
+            for(int i = 0; i <= 100; i = i + 5){
                 Thread.sleep(70);
                 loading.Progresso.setValue(i);
                 loading.Porcentagem.setText(Integer.toString(i) +"%");
