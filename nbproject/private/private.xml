@@ -4,6 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+            <file>file:/C:/Users/fekwa/OneDrive/Desktop/SorowebJava/src/conexoes/MySQL.java</file>
+            <file>file:/C:/Users/fekwa/OneDrive/Desktop/SorowebJava/src/classes/Cliente.java</file>
+            <file>file:/C:/Users/fekwa/OneDrive/Desktop/SorowebJava/src/views/Login.java</file>
+            <file>file:/C:/Users/fekwa/OneDrive/Desktop/SorowebJava/src/views/InformacoesPessoais.java</file>
+            <file>file:/C:/Users/fekwa/OneDrive/Desktop/SorowebJava/src/views/Cadastro.java</file>
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
             <file>file:/C:/Users/Rosimeire/Documents/NetBeansProjects/Soroweb/src/conexoes/MySQL.java</file>
             <file>file:/C:/Users/Rosimeire/Documents/NetBeansProjects/Soroweb/src/Cadastro.java</file>
             <file>file:/C:/Users/Rosimeire/Documents/NetBeansProjects/Soroweb/src/Login.java</file>
@@ -12,6 +22,10 @@
             <file>file:/C:/Users/fekwa/OneDrive/Desktop/SorowebJava/src/InformacoesPessoais.java</file>
             <file>file:/C:/Users/fekwa/OneDrive/Desktop/SorowebJava/src/Login.java</file>
 >>>>>>> b50acc098db4e4b60483cb7eb65664e70da0088b
+<<<<<<< Updated upstream
+=======
+>>>>>>> ce83a2ae83523a6b10407b66ec284962ac1f78df
+>>>>>>> Stashed changes
         </group>
     </open-files>
 </project-private>
