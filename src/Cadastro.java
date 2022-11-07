@@ -67,7 +67,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(97, 150, 150));
+        jPanel1.setBackground(new java.awt.Color(0, 207, 150));
         jPanel1.setForeground(new java.awt.Color(255, 102, 51));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -176,7 +176,7 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroLimpar.setBackground(new java.awt.Color(97, 150, 150));
+        btnCadastroLimpar.setBackground(new java.awt.Color(0, 207, 150));
         btnCadastroLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/delete.png"))); // NOI18N
         btnCadastroLimpar.setText("Limpar");
         btnCadastroLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -185,7 +185,7 @@ public class Cadastro extends javax.swing.JFrame {
             }
         });
 
-        btnCadastroCadastro.setBackground(new java.awt.Color(97, 150, 150));
+        btnCadastroCadastro.setBackground(new java.awt.Color(0, 207, 150));
         btnCadastroCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/save.png"))); // NOI18N
         btnCadastroCadastro.setText("Cadastrar");
         btnCadastroCadastro.addActionListener(new java.awt.event.ActionListener() {
