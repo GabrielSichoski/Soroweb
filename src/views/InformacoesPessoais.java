@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
 public class InformacoesPessoais extends javax.swing.JFrame {
         MySQL conectar = new MySQL();
         Cliente novoCliente = new Cliente ();
+        String cargoRecebido = "";
+        String userRecebido = "";
     /**
      * Creates new form InformacoesPessoais
      */
@@ -59,7 +61,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_voltar = new javax.swing.JButton();
         btnInformacoesBuscar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -135,7 +137,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         jPanel6.setForeground(new java.awt.Color(255, 102, 51));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel21.setText("Informações Pessoais");
+        jLabel21.setText("Informações Pessoais Clientes");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -157,12 +159,12 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel20.setText("Segurança");
 
-        jButton1.setBackground(new java.awt.Color(0, 207, 150));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_voltar.setBackground(new java.awt.Color(0, 207, 150));
+        btn_voltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/voltar.png"))); // NOI18N
+        btn_voltar.setText("jButton1");
+        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_voltarActionPerformed(evt);
             }
         });
 
@@ -225,7 +227,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(txtInformacoesCep)
                                 .addGap(90, 90, 90))))
@@ -312,7 +314,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
                         .addGap(52, 52, 52))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(btn_voltar, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                             .addComponent(btnInformacoesBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnInformacoesDeletar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())))
@@ -322,7 +324,7 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 916, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 916, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,10 +377,12 @@ public class InformacoesPessoais extends javax.swing.JFrame {
         buscarCliente(novoCliente);
     }//GEN-LAST:event_btnInformacoesBuscarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
+       Menu menuzinho = new Menu();
+       menuzinho.setVisible(true);
+       menuzinho.Recebe(userRecebido, cargoRecebido);
+       this.dispose();
+    }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void txtInformacoesNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtInformacoesNomeActionPerformed
         // TODO add your handling code here:
@@ -494,11 +498,17 @@ public class InformacoesPessoais extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void Recebe(String user, String cargo){
+        cargoRecebido = cargo;
+        userRecebido = user;
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInformacoesBuscar;
     private javax.swing.JButton btnInformacoesDeletar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btn_voltar;
     private javax.swing.JTabbedPane jInformacoes;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
