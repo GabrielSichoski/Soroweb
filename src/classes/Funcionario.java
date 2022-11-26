@@ -37,7 +37,19 @@ public class Funcionario {
         this.estado_civil = "";
     }
     
-    
+    public void LimpaFuncionario(){
+         this.nome = "";
+        this.rg = "";
+        this.email = "";
+        this.telefone = "";
+        this.endereco = "";
+        this.cargo = "";
+        this.senha = "";
+        this.sexo = "";
+        this.cpf = "";
+        this.salario ="";
+        this.estado_civil = "";
+    }
     /*idFuncionario int primary key auto_increment,
     nome varchar(90) unique,
     rg int,
