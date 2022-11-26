@@ -73,7 +73,7 @@ public class Cadastro extends javax.swing.JFrame {
         jPanel1.setForeground(new java.awt.Color(255, 102, 51));
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel16.setText("\t\t\t\tCadastro");
+        jLabel16.setText("\t\t\t\tCadastro Cliente");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,7 +171,7 @@ public class Cadastro extends javax.swing.JFrame {
 
         cbxCargp.setBackground(new java.awt.Color(204, 204, 204));
         cbxCargp.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbxCargp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Agiota", "Endividado" }));
+        cbxCargp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Cliente", "Pessoa Juridica" }));
         cbxCargp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxCargpActionPerformed(evt);
@@ -505,7 +505,7 @@ public class Cadastro extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
