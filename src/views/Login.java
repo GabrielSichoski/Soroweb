@@ -26,9 +26,9 @@ public class Login extends javax.swing.JFrame {
     private String recebeCargo(){
     this.conectar.conectaBanco();
         String usuario = txtUsuario.getText();
-        String resposta = "";
+        String resposta = "Erro";
         try{
-            System.out.println("RODANDO FUNCIONARIO EXISTE");
+            System.out.println("RODANDO BUSCA CARGO");
             var buscarCliente = "SELECT cargo from Funcionario"
                     + " WHERE nome = '" + usuario + "';"
                     ;
@@ -99,7 +99,33 @@ public class Login extends javax.swing.JFrame {
                  return true;
              }
             }catch(Exception e){System.out.println("ERRO NO TRY");}
-        }else{System.out.println("FUNCIONARIO NÃO EXISTE");}
+        }else{
+            System.out.println("FUNCIONARIO NÃO EXISTE");
+            System.out.println("TENTANDO CLIENTES");
+            
+            try{
+                var query = "Select nome,senha from cliente;";
+                
+                this.conectar.executarSQL(query);
+                
+                while(this.conectar.getResultSet().next()){
+                    usuarioBanco = (this.conectar.getResultSet().getString(1));
+                    senhaBanco = (this.conectar.getResultSet().getString(2));
+                }
+                
+                System.out.println("USUARIO: " + usuarioBanco + " SENHA: " + senhaBanco);
+                if(usuario.equals(usuarioBanco) && senha.equals(senhaBanco)){
+                 System.out.println("LOGADO COM SUCESSO");
+                 return true;
+             }else{
+                    System.out.println("Não foi possivel logar como cliente");
+                }
+                
+            }catch(Exception erro){
+                
+                System.out.println("ERRO AO ENTRAR EM CLIENTES " + erro);
+            }
+        }
          
         return false;
    }
@@ -459,6 +485,7 @@ public class Login extends javax.swing.JFrame {
          Boolean logar = Logar();
          String usuario = txtUsuario.getText();
          String cargo = recebeCargo();
+         if(cargo.equals("Erro")) cargo = "Cliente";
         Menu menuzinho = new Menu();
         if(logar){
             System.out.println("RODANDO LOGAR");

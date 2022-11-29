@@ -150,10 +150,12 @@ public class Loading extends javax.swing.JFrame {
                 loading.Progresso.setValue(i);
                 loading.Porcentagem.setText(Integer.toString(i) +"%");
             }
-            loading.dispose();
             
             Login login = new Login();
             login.setVisible(true);
+            loading.dispose();
+            
+            
             
     }catch (InterruptedException e){
         JOptionPane.showConfirmDialog(null, "Erro");

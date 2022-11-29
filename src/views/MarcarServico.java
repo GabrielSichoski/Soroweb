@@ -3,18 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views;
-
+import classes.Empresa;
+import conexoes.MySQL;
+import classes.Servico;
+import java.util.HashSet;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import javax.swing.DefaultComboBoxModel;
 /**
  *
  * @author Rosimeire
  */
 public class MarcarServico extends javax.swing.JFrame {
-
+    Servico novoServico = new Servico();
+    
+    MySQL conectar = new MySQL();
     /**
      * Creates new form MarcarServico
      */
     public MarcarServico() {
         initComponents();
+        resgatarEmpresas();
     }
 
     /**
@@ -51,29 +61,29 @@ public class MarcarServico extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtCidade1 = new javax.swing.JTextField();
-        cbxEstado1 = new javax.swing.JComboBox<>();
+        txt_Cidade = new javax.swing.JTextField();
         txtEstado1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnCadastrar1 = new javax.swing.JButton();
         btnCadastroCadastrar2 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txtEndereco2 = new javax.swing.JTextArea();
-        cbxEstado2 = new javax.swing.JComboBox<>();
-        cbxEstado3 = new javax.swing.JComboBox<>();
+        txtEndereco = new javax.swing.JTextArea();
+        cbxEmpresa = new javax.swing.JComboBox<>();
+        cbxPrestador = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        cbxEstado4 = new javax.swing.JComboBox<>();
+        cmbEstado = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
-        cbxEstado5 = new javax.swing.JComboBox<>();
+        cbxServico = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        txtEndereco3 = new javax.swing.JTextArea();
+        txtDescricao = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
-        txtCidade2 = new javax.swing.JTextField();
+        txtNomeCliente = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        txtCidade4 = new javax.swing.JTextField();
+        txtNumeroServico = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        txtCidade5 = new javax.swing.JTextField();
+        txtHorario = new javax.swing.JTextField();
+        txtData = new javax.swing.JTextField();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -242,16 +252,9 @@ public class MarcarServico extends javax.swing.JFrame {
 
         jLabel10.setText("Cidade");
 
-        txtCidade1.addActionListener(new java.awt.event.ActionListener() {
+        txt_Cidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCidade1ActionPerformed(evt);
-            }
-        });
-
-        cbxEstado1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        cbxEstado1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxEstado1ActionPerformed(evt);
+                txt_CidadeActionPerformed(evt);
             }
         });
 
@@ -294,71 +297,88 @@ public class MarcarServico extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        txtEndereco2.setColumns(20);
-        txtEndereco2.setLineWrap(true);
-        txtEndereco2.setRows(5);
-        jScrollPane4.setViewportView(txtEndereco2);
+        txtEndereco.setColumns(20);
+        txtEndereco.setLineWrap(true);
+        txtEndereco.setRows(5);
+        jScrollPane4.setViewportView(txtEndereco);
 
-        cbxEstado2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        cbxEstado2.addActionListener(new java.awt.event.ActionListener() {
+        cbxEmpresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
+        cbxEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbxEmpresaMouseClicked(evt);
+            }
+        });
+        cbxEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxEstado2ActionPerformed(evt);
+                cbxEmpresaActionPerformed(evt);
             }
         });
 
-        cbxEstado3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        cbxEstado3.addActionListener(new java.awt.event.ActionListener() {
+        cbxPrestador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
+        cbxPrestador.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbxPrestadorItemStateChanged(evt);
+            }
+        });
+        cbxPrestador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxEstado3ActionPerformed(evt);
+                cbxPrestadorActionPerformed(evt);
             }
         });
 
         jLabel11.setText("Tipo de serviço");
 
-        cbxEstado4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        cbxEstado4.addActionListener(new java.awt.event.ActionListener() {
+        cmbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        cmbEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxEstado4ActionPerformed(evt);
+                cmbEstadoActionPerformed(evt);
             }
         });
 
         jLabel12.setText("Horario ");
 
-        cbxEstado5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        cbxEstado5.addActionListener(new java.awt.event.ActionListener() {
+        cbxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar", "Manutenção", "destruição", "suporte" }));
+        cbxServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxEstado5ActionPerformed(evt);
+                cbxServicoActionPerformed(evt);
             }
         });
 
         jLabel13.setText("Endereço");
 
-        txtEndereco3.setColumns(20);
-        txtEndereco3.setLineWrap(true);
-        txtEndereco3.setRows(5);
-        jScrollPane5.setViewportView(txtEndereco3);
+        txtDescricao.setColumns(20);
+        txtDescricao.setLineWrap(true);
+        txtDescricao.setRows(5);
+        jScrollPane5.setViewportView(txtDescricao);
 
         jLabel14.setText("Numero do serviço");
 
-        txtCidade2.addActionListener(new java.awt.event.ActionListener() {
+        txtNomeCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCidade2ActionPerformed(evt);
+                txtNomeClienteActionPerformed(evt);
             }
         });
 
         jLabel15.setText("Nome Cliente");
 
-        txtCidade4.addActionListener(new java.awt.event.ActionListener() {
+        txtNumeroServico.setEnabled(false);
+        txtNumeroServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCidade4ActionPerformed(evt);
+                txtNumeroServicoActionPerformed(evt);
             }
         });
 
         jLabel16.setText("Data");
 
-        txtCidade5.addActionListener(new java.awt.event.ActionListener() {
+        txtHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCidade5ActionPerformed(evt);
+                txtHorarioActionPerformed(evt);
+            }
+        });
+
+        txtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataActionPerformed(evt);
             }
         });
 
@@ -372,24 +392,15 @@ public class MarcarServico extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxEstado2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxEmpresa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                            .addComponent(cbxEstado3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxEstado1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbxEstado5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxPrestador, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxServico, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jScrollPane5)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(txtEstado1)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(cbxEstado4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_Cidade, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10)
                                     .addComponent(jLabel6)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel9)
@@ -398,18 +409,21 @@ public class MarcarServico extends javax.swing.JFrame {
                                     .addComponent(jLabel12)
                                     .addComponent(jLabel13)
                                     .addComponent(jLabel14)
-                                    .addComponent(txtCidade2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel15)
-                                    .addComponent(txtCidade4, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(txtNumeroServico, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(txtEstado1)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(cmbEstado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel16))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(txtCidade5, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16)
+                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -421,23 +435,23 @@ public class MarcarServico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxEstado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxEstado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxPrestador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addGap(4, 4, 4)
-                .addComponent(cbxEstado5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cbxServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxEstado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCidade5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -445,11 +459,11 @@ public class MarcarServico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCidade4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNumeroServico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCidade2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -460,8 +474,8 @@ public class MarcarServico extends javax.swing.JFrame {
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCidade1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxEstado4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_Cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -472,9 +486,9 @@ public class MarcarServico extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(144, Short.MAX_VALUE)
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(141, 141, 141))
+                .addGap(138, 138, 138))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,8 +532,8 @@ public class MarcarServico extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-        CadastrarEmpresa(novoEmpresa);
-        novoEmpresa.LimpaEmpresa();
+        //CadastrarEmpresa(novoEmpresa);
+        //novoEmpresa.limpaEmpresa();
         this.txtRazao.setText("");
         this.txtCNPJ.setText("");
         this.txtCidade.setText("");
@@ -529,7 +543,7 @@ public class MarcarServico extends javax.swing.JFrame {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-        novoEmpresa.LimpaEmpresa();
+        //novoSer.limpaEmpresa();
         this.txtRazao.setText("");
         this.txtCNPJ.setText("");
         this.txtCidade.setText("");
@@ -539,21 +553,16 @@ public class MarcarServico extends javax.swing.JFrame {
 
     private void btnCadastroCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCadastrar1ActionPerformed
         new Menu().setVisible(true);
-        CadastroEmpresa.this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCadastroCadastrar1ActionPerformed
 
-    private void txtCidade1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidade1ActionPerformed
+    private void txt_CidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCidade1ActionPerformed
-
-    private void cbxEstado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstado1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxEstado1ActionPerformed
+    }//GEN-LAST:event_txt_CidadeActionPerformed
 
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
-        // TODO add your handling code here:
-        CadastrarEmpresa(novoEmpresa);
-        novoEmpresa.LimpaEmpresa();
+        
+        CadastrarServico(novoServico);
         this.txtRazao.setText("");
         this.txtCNPJ.setText("");
         this.txtCidade.setText("");
@@ -563,37 +572,50 @@ public class MarcarServico extends javax.swing.JFrame {
 
     private void btnCadastroCadastrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCadastrar2ActionPerformed
         new Menu().setVisible(true);
-        CadastroEmpresa.this.dispose();
+        this.dispose();
     }//GEN-LAST:event_btnCadastroCadastrar2ActionPerformed
 
-    private void cbxEstado2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstado2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxEstado2ActionPerformed
+    private void cbxEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEmpresaActionPerformed
+        buscarFuncionarios(cbxEmpresa.getSelectedIndex());
+        buscarServicos(cbxEmpresa.getSelectedIndex());
+    }//GEN-LAST:event_cbxEmpresaActionPerformed
 
-    private void cbxEstado3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstado3ActionPerformed
+    private void cbxPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPrestadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxEstado3ActionPerformed
+    }//GEN-LAST:event_cbxPrestadorActionPerformed
 
-    private void cbxEstado4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstado4ActionPerformed
+    private void cmbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxEstado4ActionPerformed
+    }//GEN-LAST:event_cmbEstadoActionPerformed
 
-    private void cbxEstado5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEstado5ActionPerformed
+    private void cbxServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxServicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbxEstado5ActionPerformed
+    }//GEN-LAST:event_cbxServicoActionPerformed
 
-    private void txtCidade2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidade2ActionPerformed
+    private void txtNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCidade2ActionPerformed
+    }//GEN-LAST:event_txtNomeClienteActionPerformed
 
-    private void txtCidade4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidade4ActionPerformed
+    private void txtNumeroServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroServicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCidade4ActionPerformed
+    }//GEN-LAST:event_txtNumeroServicoActionPerformed
 
-    private void txtCidade5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidade5ActionPerformed
+    private void txtHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHorarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCidade5ActionPerformed
+    }//GEN-LAST:event_txtHorarioActionPerformed
 
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
+
+    private void cbxEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxEmpresaMouseClicked
+        
+    }//GEN-LAST:event_cbxEmpresaMouseClicked
+
+    private void cbxPrestadorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxPrestadorItemStateChanged
+
+    }//GEN-LAST:event_cbxPrestadorItemStateChanged
+    
     /**
      * @param args the command line arguments
      */
@@ -635,12 +657,11 @@ public class MarcarServico extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastroCadastrar1;
     private javax.swing.JButton btnCadastroCadastrar2;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JComboBox<String> cbxEmpresa;
     private javax.swing.JComboBox<String> cbxEstado;
-    private javax.swing.JComboBox<String> cbxEstado1;
-    private javax.swing.JComboBox<String> cbxEstado2;
-    private javax.swing.JComboBox<String> cbxEstado3;
-    private javax.swing.JComboBox<String> cbxEstado4;
-    private javax.swing.JComboBox<String> cbxEstado5;
+    private javax.swing.JComboBox<String> cbxPrestador;
+    private javax.swing.JComboBox<String> cbxServico;
+    private javax.swing.JComboBox<String> cmbEstado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -667,16 +688,125 @@ public class MarcarServico extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField txtCNPJ;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextField txtCidade1;
-    private javax.swing.JTextField txtCidade2;
     private javax.swing.JTextField txtCidade3;
-    private javax.swing.JTextField txtCidade4;
-    private javax.swing.JTextField txtCidade5;
+    private javax.swing.JTextField txtData;
+    private javax.swing.JTextArea txtDescricao;
+    private javax.swing.JTextArea txtEndereco;
     private javax.swing.JTextArea txtEndereco1;
-    private javax.swing.JTextArea txtEndereco2;
-    private javax.swing.JTextArea txtEndereco3;
     private javax.swing.JLabel txtEstado;
     private javax.swing.JLabel txtEstado1;
+    private javax.swing.JTextField txtHorario;
+    private javax.swing.JTextField txtNomeCliente;
+    private javax.swing.JTextField txtNumeroServico;
     private javax.swing.JTextField txtRazao;
+    private javax.swing.JTextField txt_Cidade;
     // End of variables declaration//GEN-END:variables
+    
+    Vector<Integer> id_empresa = new Vector<Integer>();
+    Vector<Integer> id_Funcionario = new Vector<Integer>();
+    Vector<Integer> id_Servico = new Vector<Integer>();
+    private void resgatarEmpresas(){
+        this.conectar.conectaBanco();
+        System.out.println("RODANDO RESGATAR EMPRESA");
+        try{
+            System.out.println("RODANDO O TRY");
+            var query = "Select * from Empresa";
+            
+            this.conectar.executarSQL(query);
+            
+            while(this.conectar.getResultSet().next()){
+                id_empresa.add(this.conectar.getResultSet().getInt(1));
+                cbxEmpresa.addItem(this.conectar.getResultSet().getString(2));
+            }
+            System.out.println(conectar.getResultSet());
+        }catch(Exception error){
+            System.out.println("ALGUM ERRO ACONTECEU + " + error);
+        }finally{
+            
+        }
+    }
+    private void CadastrarServico(Servico NovoServico){
+        this.conectar.conectaBanco();
+        System.out.println("Rodando Cadastrar empresa");
+        novoServico.setEmpresa((String) cbxEmpresa.getSelectedItem());
+        novoServico.setIdPrestador(id_Funcionario.get(cbxPrestador.getSelectedIndex()));
+        novoServico.setServico((String) cbxServico.getSelectedItem());
+        novoServico.setHorario(txtHorario.getText());
+        novoServico.setData(txtData.getText());
+        novoServico.setDescricao(txtDescricao.getText());
+        
+        novoServico.setNomeCliente(txtNomeCliente.getText());
+        novoServico.setEndereco(txtEndereco.getText());
+        novoServico.setCidade(txtCidade.getText());
+        novoServico.setEstado((String) cmbEstado.getSelectedItem());
+        
+        
+       try{
+           
+           var query = "INSERT INTO Servico(empresa,idPrestador,servico,horario,dataServico,descricao,nomeCliente,endereco,cidade,estado)"
+                   + "Values("
+                   + "'" + NovoServico.getEmpresa() + "',"
+                   + "'" + NovoServico.getIdPrestador() + "',"
+                   + "'" + NovoServico.getServico() + "',"
+                   + "'" + NovoServico.getHorario() + "',"
+                   + "'" + NovoServico.getData() + "',"
+                   + "'" + NovoServico.getDescricao() + "',"
+                   + "'" + NovoServico.getNomeCliente() + "',"
+                   + "'" + NovoServico.getEndereco() + "',"
+                   + "'" + NovoServico.getCidade() + "',"
+                   + "'" + NovoServico.getEstado() + "');";
+           
+           this.conectar.insertSQL(query);
+                    
+            JOptionPane.showMessageDialog (null, "Cadastro Realizado com Sucesso!!");
+        } catch (Exception e ){
+            System.out.println("Erro ao Cadastrar Servico  " + e.getMessage());
+            JOptionPane.showMessageDialog (null, "Erro ao Cadastrar Cliente!");
+        } finally {
+            this.conectar.fechaBanco ();
+        }     
+        
+        
+        
+    }
+    
+    private void buscarFuncionarios(int Valor){
+        System.out.println("Executando buscarFuncionario");
+        cbxPrestador.setModel(new DefaultComboBoxModel());
+        id_Funcionario.clear();
+        try{
+            var query = "Select Funcionario.idFuncionario,Funcionario.nome from Funcionario join empresa on empresa.idEmpresa = Funcionario.idEmpresa where  empresa.idEmpresa ="
+                    + Valor + " ;";
+            
+            this.conectar.executarSQL(query);
+            
+            while(this.conectar.getResultSet().next()){
+                id_Funcionario.add(this.conectar.getResultSet().getInt(1));
+                cbxPrestador.addItem(this.conectar.getResultSet().getString(2));
+            }
+            
+        }catch(Exception erro){
+            System.out.println("ERRO: " + erro);
+        }
+    }
+    
+    private void buscarServicos(int valorzinho){
+        System.out.println("Executando buscarServicos");
+        cbxServico.setModel(new DefaultComboBoxModel());
+        id_Servico.clear();
+        System.out.println("Empresa buscada" + valorzinho);
+        try{
+            var query = "select trabalho.idTrabalho, trabalho.nome from ServicoEmpresa join trabalho on trabalho.idTrabalho = ServicoEmpresa.idtrabalho"
+                    + " join empresa on empresa.idEmpresa = ServicoEmpresa.idEmpresa where ServicoEmpresa.idEmpresa = " + valorzinho + ";";
+        
+            this.conectar.executarSQL(query);
+            
+            while(this.conectar.getResultSet().next()){
+                id_Servico.add(this.conectar.getResultSet().getInt(1));
+                cbxServico.addItem(this.conectar.getResultSet().getString(2));
+            }
+        }catch(Exception erro){
+    
+    }
+    }
 }

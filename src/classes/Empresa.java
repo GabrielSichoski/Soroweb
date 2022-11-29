@@ -6,6 +6,7 @@ public class Empresa{
     
     private String nome;
     private String CNPJ;
+    private String razao;
     private String endereco;
     private String cidade;
     private String estado;
@@ -50,13 +51,14 @@ public class Empresa{
         this.estado = estado;
     }
 
-    public Empresa(String nome, String CNPJ,String endereco, String cidade, String estado) {
-        this.nome = nome;
-        this.CNPJ = CNPJ;
-        this.endereco = endereco;
-        this.cidade = cidade;
-        this.estado = estado;
+    public String getRazao() {
+        return razao;
     }
+
+    public void setRazao(String razao) {
+        this.razao = razao;
+    }
+    
     
     
     public void limpaEmpresa(){

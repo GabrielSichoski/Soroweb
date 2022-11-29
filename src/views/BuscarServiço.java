@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views;
-
+import classes.Empresa;
 /**
  *
  * @author Rosimeire
  */
 public class BuscarServiço extends javax.swing.JFrame {
 
+    Empresa novoEmpresa = new Empresa();
     /**
      * Creates new form BuscarServiço
      */
@@ -366,12 +367,12 @@ public class BuscarServiço extends javax.swing.JFrame {
 
     private void btnBuscarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarBuscarActionPerformed
         // TODO add your handling code here:
-        buscarEmpresa(novoEmpresa);
+        //buscarEmpresa(novoEmpresa);
     }//GEN-LAST:event_btnBuscarBuscarActionPerformed
 
     private void bntBuscarLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBuscarLimparActionPerformed
         // TODO add your handling code here:
-        novoEmpresa.LimpaEmpresa();
+        novoEmpresa.limpaEmpresa();
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
@@ -385,22 +386,22 @@ public class BuscarServiço extends javax.swing.JFrame {
 
     private void btnBuscarDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDeletarActionPerformed
         // TODO add your handling code here:
-        deletarEmpresa(novoEmpresa);
-        novoEmpresa.LimpaEmpresa();
+        //deletarEmpresa(novoEmpresa);
+        novoEmpresa.limpaEmpresa();
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
         this.txtEndereco.setText("");
         this.txtBuscarCidade.setText("");
         this.txtBuscarEstado.setText("");
-        LimpaC
+ 
 
     }//GEN-LAST:event_btnBuscarDeletarActionPerformed
 
     private void btnBuscarAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAtualizarActionPerformed
         // TODO add your handling code here:
-        atualizarEmpresa(novoEmpresa);
-        novoEmpresa.LimpaEmpresa();
+        //atualizarEmpresa(novoEmpresa);
+        novoEmpresa.limpaEmpresa();
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");

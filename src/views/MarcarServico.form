@@ -300,9 +300,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="144" max="32767" attributes="0"/>
+                  <EmptySpace pref="111" max="32767" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -335,28 +335,15 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jPanel5" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="cbxEstado2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbxEmpresa" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jScrollPane4" alignment="0" pref="370" max="32767" attributes="0"/>
-                                  <Component id="cbxEstado3" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cbxEstado1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="cbxEstado5" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbxPrestador" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="cbxServico" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="txtCidade1" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Component id="txt_Cidade" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                                           <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Component id="txtEstado1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="cbxEstado4" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -365,24 +352,27 @@
                                           <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtCidade2" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Component id="txtNomeCliente" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtCidade4" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Component id="txtNumeroServico" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="txtEstado1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="cmbEstado" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="txtCidade5" min="-2" pref="187" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="txtHorario" min="-2" pref="187" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtData" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -399,23 +389,23 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbxEstado2" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxEmpresa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbxEstado3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxPrestador" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="cbxEstado5" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbxServico" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbxEstado1" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtHorario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCidade5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtData" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -423,11 +413,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCidade4" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNumeroServico" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtCidade2" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtNomeCliente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -439,8 +429,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtCidade1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cbxEstado4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_Cidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
@@ -475,52 +465,10 @@
                 <Property name="text" type="java.lang.String" value="Cidade"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCidade1">
+            <Component class="javax.swing.JTextField" name="txt_Cidade">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCidade1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_CidadeActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbxEstado1">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="28">
-                    <StringItem index="0" value="Selecionar"/>
-                    <StringItem index="1" value="AC"/>
-                    <StringItem index="2" value="AL"/>
-                    <StringItem index="3" value="AP"/>
-                    <StringItem index="4" value="AM"/>
-                    <StringItem index="5" value="BA"/>
-                    <StringItem index="6" value="CE"/>
-                    <StringItem index="7" value="DF"/>
-                    <StringItem index="8" value="ES"/>
-                    <StringItem index="9" value="GO"/>
-                    <StringItem index="10" value="MA"/>
-                    <StringItem index="11" value="MT"/>
-                    <StringItem index="12" value="MS"/>
-                    <StringItem index="13" value="MG"/>
-                    <StringItem index="14" value="PA"/>
-                    <StringItem index="15" value="PB"/>
-                    <StringItem index="16" value="PR"/>
-                    <StringItem index="17" value="PE"/>
-                    <StringItem index="18" value="PI"/>
-                    <StringItem index="19" value="RJ"/>
-                    <StringItem index="20" value="RN"/>
-                    <StringItem index="21" value="RS"/>
-                    <StringItem index="22" value="RO"/>
-                    <StringItem index="23" value="RR"/>
-                    <StringItem index="24" value="SC"/>
-                    <StringItem index="25" value="SP"/>
-                    <StringItem index="26" value="SE"/>
-                    <StringItem index="27" value="TO"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado1ActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="txtEstado1">
               <Properties>
@@ -587,7 +535,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txtEndereco2">
+                <Component class="javax.swing.JTextArea" name="txtEndereco">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
@@ -596,85 +544,33 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JComboBox" name="cbxEstado2">
+            <Component class="javax.swing.JComboBox" name="cbxEmpresa">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="28">
+                  <StringArray count="1">
                     <StringItem index="0" value="Selecionar"/>
-                    <StringItem index="1" value="AC"/>
-                    <StringItem index="2" value="AL"/>
-                    <StringItem index="3" value="AP"/>
-                    <StringItem index="4" value="AM"/>
-                    <StringItem index="5" value="BA"/>
-                    <StringItem index="6" value="CE"/>
-                    <StringItem index="7" value="DF"/>
-                    <StringItem index="8" value="ES"/>
-                    <StringItem index="9" value="GO"/>
-                    <StringItem index="10" value="MA"/>
-                    <StringItem index="11" value="MT"/>
-                    <StringItem index="12" value="MS"/>
-                    <StringItem index="13" value="MG"/>
-                    <StringItem index="14" value="PA"/>
-                    <StringItem index="15" value="PB"/>
-                    <StringItem index="16" value="PR"/>
-                    <StringItem index="17" value="PE"/>
-                    <StringItem index="18" value="PI"/>
-                    <StringItem index="19" value="RJ"/>
-                    <StringItem index="20" value="RN"/>
-                    <StringItem index="21" value="RS"/>
-                    <StringItem index="22" value="RO"/>
-                    <StringItem index="23" value="RR"/>
-                    <StringItem index="24" value="SC"/>
-                    <StringItem index="25" value="SP"/>
-                    <StringItem index="26" value="SE"/>
-                    <StringItem index="27" value="TO"/>
                   </StringArray>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado2ActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="cbxEmpresaMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEmpresaActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbxEstado3">
+            <Component class="javax.swing.JComboBox" name="cbxPrestador">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="28">
+                  <StringArray count="1">
                     <StringItem index="0" value="Selecionar"/>
-                    <StringItem index="1" value="AC"/>
-                    <StringItem index="2" value="AL"/>
-                    <StringItem index="3" value="AP"/>
-                    <StringItem index="4" value="AM"/>
-                    <StringItem index="5" value="BA"/>
-                    <StringItem index="6" value="CE"/>
-                    <StringItem index="7" value="DF"/>
-                    <StringItem index="8" value="ES"/>
-                    <StringItem index="9" value="GO"/>
-                    <StringItem index="10" value="MA"/>
-                    <StringItem index="11" value="MT"/>
-                    <StringItem index="12" value="MS"/>
-                    <StringItem index="13" value="MG"/>
-                    <StringItem index="14" value="PA"/>
-                    <StringItem index="15" value="PB"/>
-                    <StringItem index="16" value="PR"/>
-                    <StringItem index="17" value="PE"/>
-                    <StringItem index="18" value="PI"/>
-                    <StringItem index="19" value="RJ"/>
-                    <StringItem index="20" value="RN"/>
-                    <StringItem index="21" value="RS"/>
-                    <StringItem index="22" value="RO"/>
-                    <StringItem index="23" value="RR"/>
-                    <StringItem index="24" value="SC"/>
-                    <StringItem index="25" value="SP"/>
-                    <StringItem index="26" value="SE"/>
-                    <StringItem index="27" value="TO"/>
                   </StringArray>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado3ActionPerformed"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbxPrestadorItemStateChanged"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxPrestadorActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -685,7 +581,7 @@
                 <Property name="text" type="java.lang.String" value="Tipo de servi&#xe7;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbxEstado4">
+            <Component class="javax.swing.JComboBox" name="cmbEstado">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="28">
@@ -721,7 +617,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEstadoActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -732,43 +628,19 @@
                 <Property name="text" type="java.lang.String" value="Horario "/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="cbxEstado5">
+            <Component class="javax.swing.JComboBox" name="cbxServico">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="28">
+                  <StringArray count="4">
                     <StringItem index="0" value="Selecionar"/>
-                    <StringItem index="1" value="AC"/>
-                    <StringItem index="2" value="AL"/>
-                    <StringItem index="3" value="AP"/>
-                    <StringItem index="4" value="AM"/>
-                    <StringItem index="5" value="BA"/>
-                    <StringItem index="6" value="CE"/>
-                    <StringItem index="7" value="DF"/>
-                    <StringItem index="8" value="ES"/>
-                    <StringItem index="9" value="GO"/>
-                    <StringItem index="10" value="MA"/>
-                    <StringItem index="11" value="MT"/>
-                    <StringItem index="12" value="MS"/>
-                    <StringItem index="13" value="MG"/>
-                    <StringItem index="14" value="PA"/>
-                    <StringItem index="15" value="PB"/>
-                    <StringItem index="16" value="PR"/>
-                    <StringItem index="17" value="PE"/>
-                    <StringItem index="18" value="PI"/>
-                    <StringItem index="19" value="RJ"/>
-                    <StringItem index="20" value="RN"/>
-                    <StringItem index="21" value="RS"/>
-                    <StringItem index="22" value="RO"/>
-                    <StringItem index="23" value="RR"/>
-                    <StringItem index="24" value="SC"/>
-                    <StringItem index="25" value="SP"/>
-                    <StringItem index="26" value="SE"/>
-                    <StringItem index="27" value="TO"/>
+                    <StringItem index="1" value="Manuten&#xe7;&#xe3;o"/>
+                    <StringItem index="2" value="destrui&#xe7;&#xe3;o"/>
+                    <StringItem index="3" value="suporte"/>
                   </StringArray>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxServicoActionPerformed"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -786,7 +658,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txtEndereco3">
+                <Component class="javax.swing.JTextArea" name="txtDescricao">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
@@ -800,9 +672,9 @@
                 <Property name="text" type="java.lang.String" value="Numero do servi&#xe7;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCidade2">
+            <Component class="javax.swing.JTextField" name="txtNomeCliente">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCidade2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNomeClienteActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
@@ -810,9 +682,12 @@
                 <Property name="text" type="java.lang.String" value="Nome Cliente"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCidade4">
+            <Component class="javax.swing.JTextField" name="txtNumeroServico">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCidade4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroServicoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
@@ -820,9 +695,14 @@
                 <Property name="text" type="java.lang.String" value="Data"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtCidade5">
+            <Component class="javax.swing.JTextField" name="txtHorario">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCidade5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHorarioActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtData">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDataActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -1,10 +1,9 @@
 package views;
 
-import Objetos.Empresa;
-import cadastrobusca.Menu;
-import cadastrobusca.objetos.Cliente;
+import classes.Empresa;
 import conexoes.MySQL;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -16,6 +15,7 @@ import javax.swing.JOptionPane;
 public class CadastroEmpresa extends javax.swing.JFrame {
     MySQL conectar = new MySQL();
     Empresa novoEmpresa = new Empresa ();
+    Vector<Integer> id_trabalho = new Vector<Integer>();
 
     /**
      * Creates new form lOJA
@@ -50,6 +50,11 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         btnCadastroCadastrar1 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtEndereco1 = new javax.swing.JTextArea();
+        chb_Manutenção = new javax.swing.JCheckBox();
+        chb_instalacao = new javax.swing.JCheckBox();
+        chb_destruicao = new javax.swing.JCheckBox();
+        jLabel11 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -73,7 +78,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel1.setText("Cadastro de Cliente");
+        jLabel1.setText("Cadastro de Empresa");
 
         jLabel2.setText("Razão Social");
 
@@ -165,34 +170,52 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         txtEndereco1.setRows(5);
         jScrollPane3.setViewportView(txtEndereco1);
 
+        chb_Manutenção.setText("Manutenção");
+
+        chb_instalacao.setText("Instalação");
+
+        chb_destruicao.setText("Destruição");
+        chb_destruicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chb_destruicaoActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("Nome");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtRazao)
+                    .addComponent(txtCNPJ)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbxEstado, 0, 102, Short.MAX_VALUE))
-                    .addComponent(txtCNPJ)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
+                                .addComponent(jLabel5)
                                 .addGap(149, 149, 149)
                                 .addComponent(txtEstado))
-                            .addComponent(jLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(chb_instalacao, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(chb_destruicao, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(chb_Manutenção, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtNome))
                 .addContainerGap())
-            .addComponent(jScrollPane3)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,18 +223,28 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtRazao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chb_Manutenção)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chb_instalacao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chb_destruicao)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtEstado))
@@ -219,8 +252,8 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -371,7 +404,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscarDeletar)
                     .addComponent(btnBuscarAtualizar))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -492,32 +525,32 @@ public class CadastroEmpresa extends javax.swing.JFrame {
        }
     }
     
+    
+    
     private void CadastrarEmpresa(Empresa novo){
+        int i = 0;
         this.conectar.conectaBanco(); //estabelecendo conexão com o bd
         
-        novo.setNome(txtRazao.getText());
+        novo.setNome(txtNome.getText());
+        novo.setRazao(txtRazao.getText());
         novo.setCNPJ(txtCNPJ.getText());
         novo.setEndereco(txtEndereco1.getText());
         novo.setCidade(txtCidade.getText());
         novo.setEstado(String.valueOf(cbxEstado.getSelectedItem()));
         
         try{
-            var query = "INSERT INTO `cadastroclientes`("
-            + "nome,"
-            + "cpf,"
-            + "endereco,"
-            + "cidade,"
-            + "estado) values ("
-            + "'" + novo.getNome () + "',"
-            + "'" + novo.getCNPJ() + "',"
-            + "'" + novo.getEndereco () + "',"
-            + "'" + novo.getCidade () + "',"
-            + "'" + novo.getEstado () + "'"
-            + ");";
+            var query = "INSERT INTO empresa(nomeEmpresa,cnpj,razao,endereco,cidade,estado) values("
+                    + "'" + novo.getNome() + "',"
+                    + "'" + novo.getCNPJ() + "',"
+                    + "'" + novo.getRazao() + "',"
+                    + "'" + novo.getEndereco() + "',"
+                    + "'" + novo.getCidade() + "',"
+                    + "'" + novo.getEstado() + "');";
             
-        this.conectar.insertSQL(query); 
-           
-            
+        this.conectar.insertSQL(query);
+        
+        if(i == 0)CadastrarTrabalhosEmpresaCheck(); i++;
+        
         } catch (Exception e ) {
             System.out.println("Erro ao Cadastrar Cliente  " + e.getMessage());
             JOptionPane.showMessageDialog (null, "Erro ao Cadastrar Cliente!");
@@ -563,7 +596,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
     private void bntBuscarLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBuscarLimparActionPerformed
         // TODO add your handling code here:
-        novoEmpresa.LimpaEmpresa();
+        novoEmpresa.limpaEmpresa();
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
@@ -573,7 +606,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
-        novoEmpresa.LimpaEmpresa();
+        novoEmpresa.limpaEmpresa();
         this.txtRazao.setText("");
         this.txtCNPJ.setText("");
         this.txtCidade.setText("");
@@ -588,7 +621,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private void btnBuscarAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAtualizarActionPerformed
         // TODO add your handling code here:
         atualizarEmpresa(novoEmpresa);
-        novoEmpresa.LimpaEmpresa();
+        novoEmpresa.limpaEmpresa();
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
@@ -601,7 +634,8 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
         CadastrarEmpresa(novoEmpresa);
-        novoEmpresa.LimpaEmpresa();
+        
+        novoEmpresa.limpaEmpresa();
         this.txtRazao.setText("");
         this.txtCNPJ.setText("");
         this.txtCidade.setText("");
@@ -612,14 +646,14 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private void btnBuscarDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDeletarActionPerformed
         // TODO add your handling code here:
         deletarEmpresa(novoEmpresa);
-        novoEmpresa.LimpaEmpresa();
+        novoEmpresa.limpaEmpresa();
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
         this.txtEndereco.setText("");
         this.txtBuscarCidade.setText("");
         this.txtBuscarEstado.setText("");
-        LimpaC
+        //LimpaC
         
     }//GEN-LAST:event_btnBuscarDeletarActionPerformed
 
@@ -627,6 +661,10 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         new Menu().setVisible(true);
         CadastroEmpresa.this.dispose();
     }//GEN-LAST:event_btnCadastroCadastrar1ActionPerformed
+
+    private void chb_destruicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chb_destruicaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chb_destruicaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -673,8 +711,12 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastroCadastrar1;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JComboBox<String> cbxEstado;
+    private javax.swing.JCheckBox chb_Manutenção;
+    private javax.swing.JCheckBox chb_destruicao;
+    private javax.swing.JCheckBox chb_instalacao;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -698,6 +740,59 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private javax.swing.JTextArea txtEndereco1;
     private javax.swing.JLabel txtEstado;
     private javax.swing.JLabel txtEstado1;
+    private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtRazao;
     // End of variables declaration//GEN-END:variables
+    
+    private int UltimoIdEmpresa(){
+        this.conectar.conectaBanco();
+        
+        try{
+            var query = "select count(idEmpresa) from empresa";
+            int Resposta = 0;
+            this.conectar.executarSQL(query);
+            
+            while(this.conectar.getResultSet().next()){
+                Resposta = this.conectar.getResultSet().getInt(1);
+            }
+            
+            
+            System.out.println("ULTIMO ID: " + Resposta);
+            return Resposta;
+        }catch(Exception erro){
+        
+        }
+        
+        return 0;
+    }
+    private void CadastrarTrabalhosEmpresaCheck(){
+     //estabelecendo conexão com o bd
+        if(chb_Manutenção.isSelected())id_trabalho.add(1);chb_Manutenção.setSelected(false); 
+        if(chb_instalacao.isSelected())id_trabalho.add(2); chb_instalacao.setSelected(false);
+        if(chb_destruicao.isSelected())id_trabalho.add(3); chb_destruicao.setSelected(false);
+        
+        CadastrarTrabalhosEmpresa();
+        
+    }
+    
+    
+    private void CadastrarTrabalhosEmpresa(){
+        this.conectar.conectaBanco();
+        int j = 0;
+        while(j < id_trabalho.size()){
+            
+            int Servico = id_trabalho.get(j);
+            try{
+                var query = "Insert into ServicoEmpresa(idtrabalho, idEmpresa) values( " + Servico + "," + UltimoIdEmpresa() + ");";
+
+                this.conectar.insertSQL(query);
+
+                j++;
+            }catch(Exception erro){
+                System.out.println("UM ERRO ACONTECEU AO INSERIR SERVIÇOS" + erro);
+            }
+        }
+        id_trabalho.clear();
+        
+    }
 }

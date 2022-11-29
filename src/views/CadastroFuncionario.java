@@ -6,6 +6,7 @@ package views;
 import classes.Funcionario;
 import conexoes.MySQL;
 import java.util.HashSet;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 /**
  *
@@ -21,6 +22,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
      */
     public CadastroFuncionario() {
         initComponents();
+        resgatarEmpresas();
     }
     
     
@@ -51,6 +53,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         btn_cadastrar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
+        cmb_Empresa = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         txt_pesquisaCPF = new javax.swing.JTextField();
         txt_pesquisaRG = new javax.swing.JTextField();
@@ -67,6 +70,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         btn_atualizar = new javax.swing.JButton();
         btn_apagar = new javax.swing.JButton();
         btn_pesquisalimpar = new javax.swing.JButton();
+        cmb_pesquisaEmpresa = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -86,7 +90,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         cmb_cargo.setBackground(new java.awt.Color(204, 204, 204));
         cmb_cargo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cmb_cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Tecnico", "Contabilidade", "Suporte", "Consultoria" }));
+        cmb_cargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Tecnico", "Contabilidade", "Suporte", "Consultoria", "Adm" }));
         cmb_cargo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_cargoActionPerformed(evt);
@@ -133,6 +137,15 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
+        cmb_Empresa.setBackground(new java.awt.Color(204, 204, 204));
+        cmb_Empresa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmb_Empresa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        cmb_Empresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_EmpresaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -148,7 +161,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addComponent(txt_confirmaSenha))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmb_estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txt_Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txt_nome)
@@ -163,8 +175,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_voltar)))
-                        .addGap(0, 199, Short.MAX_VALUE)))
+                                .addComponent(btn_voltar))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(cmb_estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmb_Empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 46, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -193,7 +209,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addComponent(txt_salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmb_estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmb_estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmb_Empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cadastrar)
@@ -254,6 +272,16 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         btn_pesquisalimpar.setText("LIMPAR");
 
+        cmb_pesquisaEmpresa.setBackground(new java.awt.Color(204, 204, 204));
+        cmb_pesquisaEmpresa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cmb_pesquisaEmpresa.setEnabled(false);
+        cmb_pesquisaEmpresa.setFocusable(false);
+        cmb_pesquisaEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmb_pesquisaEmpresaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -261,6 +289,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmb_pesquisaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btn_pesquisar)
                         .addGap(18, 18, 18)
@@ -307,7 +336,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addComponent(txt_pesquisaSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmb_pesquisaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_pesquisar)
                     .addComponent(btn_atualizar)
@@ -398,6 +429,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
         atualizaFuncionario(novoFuncionario);
     }//GEN-LAST:event_btn_atualizarActionPerformed
+
+    private void cmb_EmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_EmpresaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_EmpresaActionPerformed
+
+    private void cmb_pesquisaEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_pesquisaEmpresaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_pesquisaEmpresaActionPerformed
     
     private void atualizaFuncionario(Funcionario novo){
         this.conectar.conectaBanco();
@@ -463,7 +502,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         
         try{
             
-            var comando = "Select nome,rg,email,telefone,endereco,cargo,senha,sexo,salario,estado_civil,cpf from Funcionario where cpf = " + pesquisaCpf + ";";
+            var comando = "Select nome,rg,email,telefone,Funcionario.endereco,cargo,senha,sexo,salario,estado_civil,cpf,Funcionario.idEmpresa,empresa.nomeEmpresa from Funcionario join empresa on empresa.idEmpresa = Funcionario.idEmpresa where cpf = " + pesquisaCpf + ";";
             this.conectar.executarSQL(comando);
             
              while (this.conectar.getResultSet().next()) {
@@ -478,8 +517,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                  novo.setSalario(this.conectar.getResultSet().getString(9));
                  novo.setEstado_civil(this.conectar.getResultSet().getString(10));
                  novo.setCpf(this.conectar.getResultSet().getString(11));
-             
-                
+                 novo.setEmpresa(this.conectar.getResultSet().getInt(12));
+                 novo.setNomeEmpresa(this.conectar.getResultSet().getString(13));
              }
              
              if(novo.getCpf() == ""){
@@ -500,6 +539,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                  txt_pesquisaSexo.setText(novo.getSexo());
                  txt_pesquisaSalario.setText(novo.getSalario());
                  txt_pesquisaEstadoCivil.setText(novo.getEstado_civil());
+                 cmb_pesquisaEmpresa.addItem(novo.getNomeEmpresa());
+                 
         }
         
     }
@@ -518,9 +559,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         novo.setRg(txt_rg.getText());
         novo.setSalario(txt_salario.getText());
         novo.setTelefone(txt_telefone.getText());
+        novo.setEmpresa(cmb_Empresa.getSelectedIndex());
         
         try{
-            var query = "INSERT INTO Funcionario(nome,rg,email,telefone,endereco,cargo,senha,sexo,cpf,salario,estado_civil)"
+            var query = "INSERT INTO Funcionario(nome,rg,email,telefone,endereco,cargo,senha,sexo,cpf,salario,estado_civil,idEmpresa)"
                     + "values( '" + novo.getNome() + "',"
                     + "'"+ novo.getRg() + "',"
                     + "'"+ novo.getEmail() + "',"
@@ -531,7 +573,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                     + "'" + novo.getSexo() + "',"
                     + "'" + novo.getCpf() + "',"
                     + "'" + novo.getSalario() + "',"
-                    + "' " + novo.getEstado_civil() +"');";
+                    + "' " + novo.getEstado_civil() +"',"
+                    + "'" + novo.getEmpresa() + "');";
             
             this.conectar.insertSQL(query);
                     
@@ -593,8 +636,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JButton btn_pesquisalimpar;
     private javax.swing.JButton btn_pesquisar;
     private javax.swing.JButton btn_voltar;
+    private javax.swing.JComboBox<String> cmb_Empresa;
     private javax.swing.JComboBox<String> cmb_cargo;
     private javax.swing.JComboBox<String> cmb_estadoCivil;
+    private javax.swing.JComboBox<String> cmb_pesquisaEmpresa;
     private javax.swing.JComboBox<String> cmb_sexo;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
@@ -621,4 +666,27 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JTextField txt_senha;
     private javax.swing.JTextField txt_telefone;
     // End of variables declaration//GEN-END:variables
+
+Vector<Integer> id_empresa = new Vector<Integer>();
+   
+    private void resgatarEmpresas(){
+        this.conectar.conectaBanco();
+        System.out.println("RODANDO RESGATAR EMPRESA");
+        try{
+            System.out.println("RODANDO O TRY");
+            var query = "Select * from Empresa";
+            
+            this.conectar.executarSQL(query);
+            
+            while(this.conectar.getResultSet().next()){
+                id_empresa.add(this.conectar.getResultSet().getInt(1));
+                cmb_Empresa.addItem(this.conectar.getResultSet().getString(2));
+            }
+            System.out.println(conectar.getResultSet());
+        }catch(Exception error){
+            System.out.println("ALGUM ERRO ACONTECEU + " + error);
+        }finally{
+            
+        }
+    }
 }

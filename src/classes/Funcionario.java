@@ -22,6 +22,8 @@ public class Funcionario {
     String cpf;
     String salario;
     String estado_civil;
+    int idEmpresa;
+    String nomeEmpresa;
 
     public Funcionario() {
         this.nome = "";
@@ -35,6 +37,8 @@ public class Funcionario {
         this.cpf = "";
         this.salario ="";
         this.estado_civil = "";
+        this.idEmpresa = 0;
+        this.nomeEmpresa = "";
     }
     
     public void LimpaFuncionario(){
@@ -49,6 +53,8 @@ public class Funcionario {
         this.cpf = "";
         this.salario ="";
         this.estado_civil = "";
+        this.idEmpresa = 0;
+        this.nomeEmpresa = "";
     }
     /*idFuncionario int primary key auto_increment,
     nome varchar(90) unique,
@@ -61,8 +67,25 @@ public class Funcionario {
     sexo varchar(10),
     cpf int,
     salario float,
-    estado_civil varchar(90)*/
+    estado_civil varchar(90),
+    idEmpresa references Empresa(idEmpresa)*/
 
+    public String getNomeEmpresa() {
+        return nomeEmpresa;
+    }
+
+    public void setNomeEmpresa(String nomeEmpresa) {
+        this.nomeEmpresa = nomeEmpresa;
+    }
+    
+    public int getEmpresa(){
+        return idEmpresa;
+    }
+    
+    public void setEmpresa(int Empresa){
+        this.idEmpresa = Empresa;
+    }
+    
     public String getNome() {
         return nome;
     }

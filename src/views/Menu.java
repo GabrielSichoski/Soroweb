@@ -33,7 +33,9 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
         lbl_cargo = new javax.swing.JLabel();
-        btn_PesquisarClientes = new javax.swing.JButton();
+        btn_CadastrarEmpresa = new javax.swing.JButton();
+        btn_PesquisarClientes1 = new javax.swing.JButton();
+        btn_CadastrarServico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,13 +83,27 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lbl_cargo))
-                .addContainerGap(478, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btn_PesquisarClientes.setText("PESQUISAR CLIENTES/ATUALIZAR");
-        btn_PesquisarClientes.addActionListener(new java.awt.event.ActionListener() {
+        btn_CadastrarEmpresa.setText("Cadastrar Empresa");
+        btn_CadastrarEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_PesquisarClientesActionPerformed(evt);
+                btn_CadastrarEmpresaActionPerformed(evt);
+            }
+        });
+
+        btn_PesquisarClientes1.setText("PESQUISAR CLIENTES/ATUALIZAR");
+        btn_PesquisarClientes1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_PesquisarClientes1ActionPerformed(evt);
+            }
+        });
+
+        btn_CadastrarServico.setText("Marcar Serviço");
+        btn_CadastrarServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CadastrarServicoActionPerformed(evt);
             }
         });
 
@@ -105,7 +121,10 @@ public class Menu extends javax.swing.JFrame {
                         .addGap(91, 91, 91))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_PesquisarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_PesquisarClientes1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                            .addComponent(btn_CadastrarEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                            .addComponent(btn_CadastrarServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -113,9 +132,13 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(btn_cadastrarFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_PesquisarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btn_PesquisarClientes1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btn_CadastrarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_CadastrarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(156, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -132,12 +155,22 @@ public class Menu extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btn_cadastrarFuncionarioActionPerformed
 
-    private void btn_PesquisarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PesquisarClientesActionPerformed
-       InformacoesPessoais infopessoais = new InformacoesPessoais();
-       infopessoais.setVisible(true);
-       infopessoais.Recebe(lbl_user.getText(), lbl_cargo.getText());
+    private void btn_CadastrarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarEmpresaActionPerformed
+       CadastroEmpresa empresa = new CadastroEmpresa();
+       empresa.setVisible(true);
        this.dispose();
-    }//GEN-LAST:event_btn_PesquisarClientesActionPerformed
+    }//GEN-LAST:event_btn_CadastrarEmpresaActionPerformed
+
+    private void btn_PesquisarClientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PesquisarClientes1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_PesquisarClientes1ActionPerformed
+
+    private void btn_CadastrarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarServicoActionPerformed
+        
+        MarcarServico servico = new MarcarServico();
+        servico.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_CadastrarServicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +221,9 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_PesquisarClientes;
+    private javax.swing.JButton btn_CadastrarEmpresa;
+    private javax.swing.JButton btn_CadastrarServico;
+    private javax.swing.JButton btn_PesquisarClientes1;
     private javax.swing.JButton btn_cadastrarFuncionario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
