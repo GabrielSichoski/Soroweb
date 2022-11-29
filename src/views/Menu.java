@@ -9,13 +9,16 @@ package views;
  * @author fekwa
  */
 public class Menu extends javax.swing.JFrame {
-    String cargoMenu;
-    String userMenu;
+    String cargoMenu = "null";
+    String userMenu = "null";
     /**
      * Creates new form Menu
      */
     public Menu() {
         initComponents();
+        if(cargoMenu.equals("Adm")){
+            btn_cadastrarFuncionario.setEnabled(true);
+        }else{btn_cadastrarFuncionario.setEnabled(false);}
     }
 
     /**

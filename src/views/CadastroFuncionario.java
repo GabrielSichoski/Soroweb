@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
 public class CadastroFuncionario extends javax.swing.JFrame {
  MySQL conectar = new MySQL();
     Funcionario novoFuncionario = new Funcionario();
-    String cargoRecebido = "";
-    String userRecebido = "";
+    String cargoRecebido = "null";
+    String userRecebido = "null";
     /**
      * Creates new form CadastroFuncionario
      */
