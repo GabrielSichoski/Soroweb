@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Empresa "/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -43,31 +50,27 @@
                   <Component id="btnBuscarDeletar" min="-2" pref="161" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cbxPrestador" max="32767" attributes="0"/>
+                      <Component id="cbxServico" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cbxEmpresa" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txt_data" alignment="0" pref="377" max="32767" attributes="0"/>
+                                  <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txt_horario" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="cbxEstado2" max="32767" attributes="0"/>
-                              <Component id="cbxEstado4" alignment="0" max="32767" attributes="0"/>
-                              <Component id="cbxEstado5" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -81,19 +84,25 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="221" max="-2" attributes="0"/>
-                  <Component id="cbxEstado2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                  <Component id="cbxEmpresa" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cbxPrestador" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cbxEstado4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cbxServico" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cbxEstado5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txt_horario" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="258" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="txt_data" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="265" max="32767" attributes="0"/>
                   <Component id="btnBuscarDeletar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -120,13 +129,9 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="txtBuscarCidade1" pref="381" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtBuscarCidade" min="-2" pref="180" max="-2" attributes="0"/>
@@ -142,36 +147,29 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="txtBuscarNome" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="txtBuscarCPF" alignment="1" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="txtBuscaCNPJ" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
+                                          <Component id="txtBuscaServico" alignment="0" min="-2" pref="187" max="-2" attributes="0"/>
                                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnBuscarBuscar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="bntBuscarLimpar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="26" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="cbxEstado3" alignment="0" max="32767" attributes="0"/>
                           <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel7" min="-2" pref="111" max="-2" attributes="0"/>
                                   <Component id="btnBuscarAtualizar" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                   <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
                                   <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -188,27 +186,21 @@
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtBuscaCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnBuscarBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtBuscaServico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="bntBuscarLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtBuscarNome" min="-2" pref="28" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cbxEstado3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="156" max="32767" attributes="0"/>
-                      <Component id="txtBuscarCidade1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtBuscarCPF" min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="296" max="32767" attributes="0"/>
                       <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="46" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="46" max="-2" attributes="0"/>
@@ -239,22 +231,22 @@
                 <Property name="text" type="java.lang.String" value="Numero do Servi&#xe7;o"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtBuscaCNPJ">
+            <Component class="javax.swing.JTextField" name="txtBuscaServico">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscaCNPJActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscaServicoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nome Cliente"/>
+                <Property name="text" type="java.lang.String" value="CPF Cliente"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtBuscarNome">
+            <Component class="javax.swing.JTextField" name="txtBuscarCPF">
               <Properties>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarNomeActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarCPFActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
@@ -268,9 +260,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtBuscarCidade">
-              <Properties>
-                <Property name="focusable" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarCidadeActionPerformed"/>
               </Events>
@@ -280,12 +269,12 @@
                 <Property name="text" type="java.lang.String" value="Estado"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnBuscarBuscar">
+            <Component class="javax.swing.JButton" name="btnBuscar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarBuscarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="bntBuscarLimpar">
@@ -297,9 +286,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtBuscarEstado">
-              <Properties>
-                <Property name="focusable" type="boolean" value="false"/>
-              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarEstadoActionPerformed"/>
               </Events>
@@ -316,7 +302,6 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -328,58 +313,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarAtualizarActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Empresa "/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Prestador de servi&#xe7;o"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="cbxEstado3">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="28">
-                    <StringItem index="0" value="Selecionar"/>
-                    <StringItem index="1" value="AC"/>
-                    <StringItem index="2" value="AL"/>
-                    <StringItem index="3" value="AP"/>
-                    <StringItem index="4" value="AM"/>
-                    <StringItem index="5" value="BA"/>
-                    <StringItem index="6" value="CE"/>
-                    <StringItem index="7" value="DF"/>
-                    <StringItem index="8" value="ES"/>
-                    <StringItem index="9" value="GO"/>
-                    <StringItem index="10" value="MA"/>
-                    <StringItem index="11" value="MT"/>
-                    <StringItem index="12" value="MS"/>
-                    <StringItem index="13" value="MG"/>
-                    <StringItem index="14" value="PA"/>
-                    <StringItem index="15" value="PB"/>
-                    <StringItem index="16" value="PR"/>
-                    <StringItem index="17" value="PE"/>
-                    <StringItem index="18" value="PI"/>
-                    <StringItem index="19" value="RJ"/>
-                    <StringItem index="20" value="RN"/>
-                    <StringItem index="21" value="RS"/>
-                    <StringItem index="22" value="RO"/>
-                    <StringItem index="23" value="RR"/>
-                    <StringItem index="24" value="SC"/>
-                    <StringItem index="25" value="SP"/>
-                    <StringItem index="26" value="SE"/>
-                    <StringItem index="27" value="TO"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado3ActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
               <Properties>
@@ -393,23 +326,19 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txtEndereco1">
+                <Component class="javax.swing.JTextArea" name="txtDescricao">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="txtBuscarCidade1">
+            <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
-                <Property name="focusable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value="Empresa"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBuscarCidade1ActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -421,43 +350,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarDeletarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxEstado2">
+        <Component class="javax.swing.JComboBox" name="cbxPrestador">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="28">
-                <StringItem index="0" value="Selecionar"/>
-                <StringItem index="1" value="AC"/>
-                <StringItem index="2" value="AL"/>
-                <StringItem index="3" value="AP"/>
-                <StringItem index="4" value="AM"/>
-                <StringItem index="5" value="BA"/>
-                <StringItem index="6" value="CE"/>
-                <StringItem index="7" value="DF"/>
-                <StringItem index="8" value="ES"/>
-                <StringItem index="9" value="GO"/>
-                <StringItem index="10" value="MA"/>
-                <StringItem index="11" value="MT"/>
-                <StringItem index="12" value="MS"/>
-                <StringItem index="13" value="MG"/>
-                <StringItem index="14" value="PA"/>
-                <StringItem index="15" value="PB"/>
-                <StringItem index="16" value="PR"/>
-                <StringItem index="17" value="PE"/>
-                <StringItem index="18" value="PI"/>
-                <StringItem index="19" value="RJ"/>
-                <StringItem index="20" value="RN"/>
-                <StringItem index="21" value="RS"/>
-                <StringItem index="22" value="RO"/>
-                <StringItem index="23" value="RR"/>
-                <StringItem index="24" value="SC"/>
-                <StringItem index="25" value="SP"/>
-                <StringItem index="26" value="SE"/>
-                <StringItem index="27" value="TO"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxPrestadorActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -468,43 +368,14 @@
             <Property name="text" type="java.lang.String" value="Tipo de servi&#xe7;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxEstado4">
+        <Component class="javax.swing.JComboBox" name="cbxServico">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="28">
-                <StringItem index="0" value="Selecionar"/>
-                <StringItem index="1" value="AC"/>
-                <StringItem index="2" value="AL"/>
-                <StringItem index="3" value="AP"/>
-                <StringItem index="4" value="AM"/>
-                <StringItem index="5" value="BA"/>
-                <StringItem index="6" value="CE"/>
-                <StringItem index="7" value="DF"/>
-                <StringItem index="8" value="ES"/>
-                <StringItem index="9" value="GO"/>
-                <StringItem index="10" value="MA"/>
-                <StringItem index="11" value="MT"/>
-                <StringItem index="12" value="MS"/>
-                <StringItem index="13" value="MG"/>
-                <StringItem index="14" value="PA"/>
-                <StringItem index="15" value="PB"/>
-                <StringItem index="16" value="PR"/>
-                <StringItem index="17" value="PE"/>
-                <StringItem index="18" value="PI"/>
-                <StringItem index="19" value="RJ"/>
-                <StringItem index="20" value="RN"/>
-                <StringItem index="21" value="RS"/>
-                <StringItem index="22" value="RO"/>
-                <StringItem index="23" value="RR"/>
-                <StringItem index="24" value="SC"/>
-                <StringItem index="25" value="SP"/>
-                <StringItem index="26" value="SE"/>
-                <StringItem index="27" value="TO"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxServicoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -515,51 +386,31 @@
             <Property name="text" type="java.lang.String" value="Horario"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cbxEstado5">
+        <Component class="javax.swing.JLabel" name="jLabel16">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Data"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_data">
+        </Component>
+        <Component class="javax.swing.JTextField" name="txt_horario">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbxEmpresa">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="28">
-                <StringItem index="0" value="Selecionar"/>
-                <StringItem index="1" value="AC"/>
-                <StringItem index="2" value="AL"/>
-                <StringItem index="3" value="AP"/>
-                <StringItem index="4" value="AM"/>
-                <StringItem index="5" value="BA"/>
-                <StringItem index="6" value="CE"/>
-                <StringItem index="7" value="DF"/>
-                <StringItem index="8" value="ES"/>
-                <StringItem index="9" value="GO"/>
-                <StringItem index="10" value="MA"/>
-                <StringItem index="11" value="MT"/>
-                <StringItem index="12" value="MS"/>
-                <StringItem index="13" value="MG"/>
-                <StringItem index="14" value="PA"/>
-                <StringItem index="15" value="PB"/>
-                <StringItem index="16" value="PR"/>
-                <StringItem index="17" value="PE"/>
-                <StringItem index="18" value="PI"/>
-                <StringItem index="19" value="RJ"/>
-                <StringItem index="20" value="RN"/>
-                <StringItem index="21" value="RS"/>
-                <StringItem index="22" value="RO"/>
-                <StringItem index="23" value="RR"/>
-                <StringItem index="24" value="SC"/>
-                <StringItem index="25" value="SP"/>
-                <StringItem index="26" value="SE"/>
-                <StringItem index="27" value="TO"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEstado5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxEmpresaActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel16">
+        <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Data"/>
+            <Property name="text" type="java.lang.String" value="Prestador"/>
           </Properties>
         </Component>
       </SubComponents>

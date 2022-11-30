@@ -69,7 +69,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         bntBuscarLimpar = new javax.swing.JButton();
         txtBuscarEstado = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtEndereco = new javax.swing.JTextArea();
+        txt_buscaEndereco = new javax.swing.JTextArea();
         btnBuscarDeletar = new javax.swing.JButton();
         btnBuscarAtualizar = new javax.swing.JButton();
 
@@ -271,7 +271,6 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
         jLabel8.setText("Nome");
 
-        txtBuscarNome.setFocusable(false);
         txtBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarNomeActionPerformed(evt);
@@ -282,7 +281,6 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
         jLabel10.setText("Cidade");
 
-        txtBuscarCidade.setFocusable(false);
         txtBuscarCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarCidadeActionPerformed(evt);
@@ -305,18 +303,16 @@ public class CadastroEmpresa extends javax.swing.JFrame {
             }
         });
 
-        txtBuscarEstado.setFocusable(false);
         txtBuscarEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarEstadoActionPerformed(evt);
             }
         });
 
-        txtEndereco.setColumns(20);
-        txtEndereco.setLineWrap(true);
-        txtEndereco.setRows(5);
-        txtEndereco.setFocusable(false);
-        jScrollPane1.setViewportView(txtEndereco);
+        txt_buscaEndereco.setColumns(20);
+        txt_buscaEndereco.setLineWrap(true);
+        txt_buscaEndereco.setRows(5);
+        jScrollPane1.setViewportView(txt_buscaEndereco);
 
         btnBuscarDeletar.setText("Deletar");
         btnBuscarDeletar.addActionListener(new java.awt.event.ActionListener() {
@@ -437,25 +433,25 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         String consultaCNPJ = this.txtBuscaCNPJ.getText();
         
         try{
-            var deletarCNPJ = "DELETE from cadastroclientes where cpf = '" + consultaCNPJ + "'";
+            var deletarCNPJ = "DELETE from empresa where cnpj = '" + consultaCNPJ + "'";
                            
             this.conectar.updateSQL (deletarCNPJ);
             
         } catch (Exception e) {
             System.out.println("Erro ao Deletar Cliente"+ e.getMessage());
-            JOptionPane.showMessageDialog (null, "Erro ao Deletar Cliente");
+            JOptionPane.showMessageDialog (null, "Erro ao Deletar Empresa");
         }
     }
     
     public void atualizarEmpresa(Empresa novoEmpresa){
         this.conectar.conectaBanco();
-        
+        //
         String consultaCNPJ = this.txtBuscaCNPJ.getText();
-        
+        //nomeEmpresa,cnpj,razao,endereco,cidade,estado
         try{
-            var atualizaCNPJ = "UPDATE cadastroEmpresa SET "
-                    + "nome = '" + txtBuscarNome.getText() + "', "
-                    + "endereco = '" + txtEndereco.getText() + "', "
+            var atualizaCNPJ = "UPDATE Empresa SET "
+                    + "nomeEmpresa = '" + txtBuscarNome.getText() + "', "
+                    + "endereco = '" + txt_buscaEndereco.getText() + "', "
                     + "cidade = '" + txtBuscarCidade.getText()+ "', "
                     + "estado = '" + txtBuscarEstado.getText()+ "' "
                     + " WHERE "
@@ -463,7 +459,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                     ;
             this.conectar.updateSQL (atualizaCNPJ);
                         
-            if(novoEmpresa.getNome() == ""){
+            if(novoEmpresa.getNome().equals("")){
                 JOptionPane.showMessageDialog(null, "Erro não Buscar Empresa");
             }         
         } catch(Exception e) {
@@ -472,7 +468,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         
         } finally {
             txtBuscarNome.setText(novoEmpresa.getNome());
-            txtEndereco.setText(novoEmpresa.getEndereco());
+            txt_buscaEndereco.setText(novoEmpresa.getEndereco());
             txtBuscarCidade.setText(novoEmpresa.getCidade());
             txtBuscarEstado.setText(novoEmpresa.getEstado());
             
@@ -482,16 +478,16 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private void buscarEmpresa(Empresa novoEmpresa){
        this.conectar.conectaBanco();
        String consultaCNPJ = this.txtBuscaCNPJ.getText ();
-        
+        //nomeEmpresa,cnpj,razao,endereco,cidade,estado
        try {
            var buscacpf =  "SELECT "
-                   + "cpf,"
-                   + "nome,"
+                   + "cnpj,"
+                   + "nomeEmpresa,"
                    + "endereco,"
                    + "cidade,"
-                   + "estado"
+                   + "estado "
                    + " FROM "
-                   + "cadastroclientes"
+                   + "empresa"
                    + " WHERE "
                         + " CNPJ = '" + consultaCNPJ + "';"
                    ;
@@ -503,8 +499,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                novoEmpresa.setNome(this.conectar.getResultSet().getString(2));
                novoEmpresa.setEndereco(this.conectar.getResultSet().getString(3));
                novoEmpresa.setCidade(this.conectar.getResultSet().getString(4));
-               novoEmpresa.setEstado(this.conectar.getResultSet().getString(5));
-               
+               novoEmpresa.setEstado(this.conectar.getResultSet().getString(5));    
            }
            
            if (novoEmpresa.getCNPJ() == "") {
@@ -518,7 +513,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         } finally {
            txtBuscaCNPJ.setText(novoEmpresa.getCNPJ());
            txtBuscarNome.setText(novoEmpresa.getNome());
-           txtEndereco.setText(novoEmpresa.getEndereco());
+           txt_buscaEndereco.setText(novoEmpresa.getEndereco());
            txtBuscarCidade.setText(novoEmpresa.getCidade());
            txtBuscarEstado.setText(novoEmpresa.getEstado());
            this.conectar.fechaBanco();
@@ -600,7 +595,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
-        this.txtEndereco.setText("");
+        this.txt_buscaEndereco.setText("");
         this.txtBuscarEstado.setText("");
     }//GEN-LAST:event_bntBuscarLimparActionPerformed
 
@@ -625,7 +620,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
-        this.txtEndereco.setText("");
+        this.txt_buscaEndereco.setText("");
         this.txtBuscarCidade.setText("");
         this.txtBuscarEstado.setText("");
         
@@ -650,7 +645,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
-        this.txtEndereco.setText("");
+        this.txt_buscaEndereco.setText("");
         this.txtBuscarCidade.setText("");
         this.txtBuscarEstado.setText("");
         //LimpaC
@@ -736,12 +731,12 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private javax.swing.JTextField txtBuscarNome;
     private javax.swing.JTextField txtCNPJ;
     private javax.swing.JTextField txtCidade;
-    private javax.swing.JTextArea txtEndereco;
     private javax.swing.JTextArea txtEndereco1;
     private javax.swing.JLabel txtEstado;
     private javax.swing.JLabel txtEstado1;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtRazao;
+    private javax.swing.JTextArea txt_buscaEndereco;
     // End of variables declaration//GEN-END:variables
     
     private int UltimoIdEmpresa(){

@@ -78,7 +78,7 @@ public class MarcarServico extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         txtDescricao = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
-        txtNomeCliente = new javax.swing.JTextField();
+        txtCPFCliente = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         txtNumeroServico = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -314,7 +314,6 @@ public class MarcarServico extends javax.swing.JFrame {
             }
         });
 
-        cbxPrestador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
         cbxPrestador.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxPrestadorItemStateChanged(evt);
@@ -353,14 +352,15 @@ public class MarcarServico extends javax.swing.JFrame {
 
         jLabel14.setText("Numero do serviço");
 
-        txtNomeCliente.addActionListener(new java.awt.event.ActionListener() {
+        txtCPFCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomeClienteActionPerformed(evt);
+                txtCPFClienteActionPerformed(evt);
             }
         });
 
-        jLabel15.setText("Nome Cliente");
+        jLabel15.setText("CPF cliente");
 
+        txtNumeroServico.setText("Gerado Automaticamente");
         txtNumeroServico.setEnabled(false);
         txtNumeroServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -409,7 +409,7 @@ public class MarcarServico extends javax.swing.JFrame {
                                     .addComponent(jLabel12)
                                     .addComponent(jLabel13)
                                     .addComponent(jLabel14)
-                                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel15)
                                     .addComponent(txtNumeroServico, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -463,7 +463,7 @@ public class MarcarServico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCPFCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -592,9 +592,9 @@ public class MarcarServico extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxServicoActionPerformed
 
-    private void txtNomeClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeClienteActionPerformed
+    private void txtCPFClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCPFClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomeClienteActionPerformed
+    }//GEN-LAST:event_txtCPFClienteActionPerformed
 
     private void txtNumeroServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroServicoActionPerformed
         // TODO add your handling code here:
@@ -687,6 +687,7 @@ public class MarcarServico extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextField txtCNPJ;
+    private javax.swing.JTextField txtCPFCliente;
     private javax.swing.JTextField txtCidade;
     private javax.swing.JTextField txtCidade3;
     private javax.swing.JTextField txtData;
@@ -696,7 +697,6 @@ public class MarcarServico extends javax.swing.JFrame {
     private javax.swing.JLabel txtEstado;
     private javax.swing.JLabel txtEstado1;
     private javax.swing.JTextField txtHorario;
-    private javax.swing.JTextField txtNomeCliente;
     private javax.swing.JTextField txtNumeroServico;
     private javax.swing.JTextField txtRazao;
     private javax.swing.JTextField txt_Cidade;
@@ -705,6 +705,7 @@ public class MarcarServico extends javax.swing.JFrame {
     Vector<Integer> id_empresa = new Vector<Integer>();
     Vector<Integer> id_Funcionario = new Vector<Integer>();
     Vector<Integer> id_Servico = new Vector<Integer>();
+    
     private void resgatarEmpresas(){
         this.conectar.conectaBanco();
         System.out.println("RODANDO RESGATAR EMPRESA");
@@ -727,15 +728,15 @@ public class MarcarServico extends javax.swing.JFrame {
     }
     private void CadastrarServico(Servico NovoServico){
         this.conectar.conectaBanco();
-        System.out.println("Rodando Cadastrar empresa");
-        novoServico.setEmpresa((String) cbxEmpresa.getSelectedItem());
+        System.out.println("Rodando Cadastrar Servico");
+        novoServico.setIdEmpresa(cbxEmpresa.getSelectedIndex());
         novoServico.setIdPrestador(id_Funcionario.get(cbxPrestador.getSelectedIndex()));
-        novoServico.setServico((String) cbxServico.getSelectedItem());
+        novoServico.setIdServico(id_Servico.get(cbxServico.getSelectedIndex()));
         novoServico.setHorario(txtHorario.getText());
         novoServico.setData(txtData.getText());
         novoServico.setDescricao(txtDescricao.getText());
         
-        novoServico.setNomeCliente(txtNomeCliente.getText());
+        novoServico.setCpfCliente(Integer.parseInt(txtCPFCliente.getText()));
         novoServico.setEndereco(txtEndereco.getText());
         novoServico.setCidade(txtCidade.getText());
         novoServico.setEstado((String) cmbEstado.getSelectedItem());
@@ -743,15 +744,15 @@ public class MarcarServico extends javax.swing.JFrame {
         
        try{
            
-           var query = "INSERT INTO Servico(empresa,idPrestador,servico,horario,dataServico,descricao,nomeCliente,endereco,cidade,estado)"
+           var query = "INSERT INTO Servico(idEmpresa,idPrestador,idTrabalho,horario,dataServico,descricao,cpfCliente,endereco,cidade,estado)"
                    + "Values("
-                   + "'" + NovoServico.getEmpresa() + "',"
+                   + "'" + NovoServico.getIdEmpresa() + "',"
                    + "'" + NovoServico.getIdPrestador() + "',"
-                   + "'" + NovoServico.getServico() + "',"
+                   + "'" + NovoServico.getIdServico()+ "',"
                    + "'" + NovoServico.getHorario() + "',"
                    + "'" + NovoServico.getData() + "',"
                    + "'" + NovoServico.getDescricao() + "',"
-                   + "'" + NovoServico.getNomeCliente() + "',"
+                   + "'" + NovoServico.getCpfCliente() + "',"
                    + "'" + NovoServico.getEndereco() + "',"
                    + "'" + NovoServico.getCidade() + "',"
                    + "'" + NovoServico.getEstado() + "');";
