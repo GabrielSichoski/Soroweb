@@ -39,7 +39,21 @@ public class Servico {
         this.Estado = "";
         this.idPrestador = 0;
     }
-
+    
+    public void limpaServico(){
+    this.idEmpresa = 0;
+        this.PrestadorServico = "";
+        this.idServico = 0;
+        this.Horario = "";
+        this.Data = "";
+        this.Descricao = "";
+        this.idServico = 0;
+        this.CpfCliente = 0 ;
+        this.Endereco = "";
+        this.Cidade = "";
+        this.Estado = "";
+        this.idPrestador = 0;
+    }
     public int getIdServico() {
         return idServico;
     }

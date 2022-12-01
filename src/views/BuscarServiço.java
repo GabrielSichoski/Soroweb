@@ -100,7 +100,7 @@ public class BuscarServiço extends javax.swing.JFrame {
     }
     
     private void buscarEmpresas(int valor){
-        System.out.println("Executando BuscarEmpresas");
+       System.out.println("Executando BuscarEmpresas");
        cbxEmpresa.setModel(new DefaultComboBoxModel());
        id_empresa.clear();
        this.conectar.conectaBanco();
@@ -118,11 +118,12 @@ public class BuscarServiço extends javax.swing.JFrame {
                cbxEmpresa.addItem(this.conectar.getResultSet().getString(2));
            }
        }catch(Exception erro){
+           
        }
     }
     private void buscarPrestador(int valor){
         this.conectar.conectaBanco();
-        System.out.println("Executando buscarPrestador");
+        System.out.println("Executando buscar Prestador");
         cbxPrestador.setModel(new DefaultComboBoxModel());
         id_prestador.clear();
         
@@ -172,6 +173,7 @@ public class BuscarServiço extends javax.swing.JFrame {
     }
     private void BuscarServicos(Servico novo){
         this.conectar.conectaBanco();
+        System.out.println("EXECUTANDO BUSCAR SERVIÇO ");
         cbxEmpresa.setModel(new DefaultComboBoxModel());
         cbxPrestador.setModel(new DefaultComboBoxModel());
         try{
@@ -212,8 +214,12 @@ public class BuscarServiço extends javax.swing.JFrame {
                 novo.setIdPrestador(this.conectar.getResultSet().getInt(12));
                 novo.setIdServico(this.conectar.getResultSet().getInt(13));
             }
+            if(novo.getIdServico() == 0 || novo.getIdEmpresa() == 0){
+                 JOptionPane.showMessageDialog (null, "Erro ao procurar serviço");
+            }else{
+                HabilitaCampos(true);
+            }
             
-            HabilitaCampos(true);
         }catch(Exception erro){
                     System.out.println("ERRO AO PROCURAR SERVICO");
         }finally{
@@ -311,6 +317,15 @@ public class BuscarServiço extends javax.swing.JFrame {
         txt_horario.setEnabled(false);
 
         cbxEmpresa.setEnabled(false);
+        cbxEmpresa.addPopupMenuListener(new javax.swing.event.PopupMenuListener() {
+            public void popupMenuCanceled(javax.swing.event.PopupMenuEvent evt) {
+            }
+            public void popupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {
+                cbxEmpresaPopupMenuWillBecomeInvisible(evt);
+            }
+            public void popupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {
+            }
+        });
         cbxEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxEmpresaActionPerformed(evt);
@@ -557,6 +572,7 @@ public class BuscarServiço extends javax.swing.JFrame {
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
           DeletarServico();
           limparCampos();
+          novo.limpaServico();
           JOptionPane.showMessageDialog (null, "Serviço Apagado");
          }else{
              JOptionPane.showMessageDialog (null, "Algo deu errado ao tentar apagar o serviço ");
@@ -578,7 +594,10 @@ public class BuscarServiço extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxPrestadorActionPerformed
 
     private void cbxEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEmpresaActionPerformed
-        // TODO add your handling code here:
+        
+        
+        
+        
     }//GEN-LAST:event_cbxEmpresaActionPerformed
 
     private void btnBuscarAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAtualizarActionPerformed
@@ -613,15 +632,21 @@ public class BuscarServiço extends javax.swing.JFrame {
         this.txtBuscarCidade.setText("");
         this.txtEndereco.setText("");
         this.txtBuscarEstado.setText("");
+        this.txt_data.setText("");
+        this.txt_horario.setText("");
+        this.txtEndereco.setText("");
+        novo.limpaServico();
     }//GEN-LAST:event_bntBuscarLimparActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
         BuscarServicos(novo);
-        
+        cbxEmpresa.setModel(new DefaultComboBoxModel());
         buscarEmpresas(novo.getIdEmpresa());
-        buscarTrabalhos(novo.getIdEmpresa());
         buscarPrestador(novo.getIdEmpresa());
+        buscarTrabalhos(novo.getIdEmpresa());
+        
+        
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -642,6 +667,10 @@ public class BuscarServiço extends javax.swing.JFrame {
         menuzinho.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void cbxEmpresaPopupMenuWillBecomeInvisible(javax.swing.event.PopupMenuEvent evt) {//GEN-FIRST:event_cbxEmpresaPopupMenuWillBecomeInvisible
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxEmpresaPopupMenuWillBecomeInvisible
 
     /**
      * @param args the command line arguments
@@ -722,12 +751,13 @@ public class BuscarServiço extends javax.swing.JFrame {
         txtEndereco.setEnabled(acao);
         txtBuscarCidade.setEnabled(acao);
         txtBuscarEstado.setEnabled(acao);
-        cbxEmpresa.setEnabled(acao);
+        cbxEmpresa.setEnabled(false);
         cbxPrestador.setEnabled(acao);
         cbxServico.setEnabled(acao);
         txt_data.setEnabled(acao);
         txt_horario.setEnabled(acao);
         btnBuscarAtualizar.setEnabled(acao);
         btnBuscarDeletar.setEnabled(acao);
+        txtDescricao.setEnabled(acao);
     }
 }

@@ -39,6 +39,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
         lbl_cargo = new javax.swing.JLabel();
+        btn_voltar = new javax.swing.JButton();
         btn_CadastrarEmpresa = new javax.swing.JButton();
         btn_PesquisarClientes1 = new javax.swing.JButton();
         btn_CadastrarServico = new javax.swing.JButton();
@@ -61,23 +62,35 @@ public class Menu extends javax.swing.JFrame {
 
         lbl_cargo.setText("default");
 
+        btn_voltar.setText("VOLTAR");
+        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_voltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_user, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
-                        .addGap(403, 403, 403))
+                        .addComponent(btn_voltar)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lbl_cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lbl_user, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                .addGap(403, 403, 403))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lbl_cargo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap())))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,6 +103,8 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lbl_cargo))
+                .addGap(139, 139, 139)
+                .addComponent(btn_voltar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -179,7 +194,9 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_CadastrarEmpresaActionPerformed
 
     private void btn_PesquisarClientes1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_PesquisarClientes1ActionPerformed
-        // TODO add your handling code here:
+        InformacoesPessoais info = new InformacoesPessoais();
+        info.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btn_PesquisarClientes1ActionPerformed
 
     private void btn_CadastrarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CadastrarServicoActionPerformed
@@ -194,6 +211,13 @@ public class Menu extends javax.swing.JFrame {
         bservico.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_pesquisaServicoActionPerformed
+
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
+        
+        Login logar = new Login();
+        logar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_voltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,6 +269,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_PesquisarClientes1;
     private javax.swing.JButton btn_cadastrarFuncionario;
     private javax.swing.JButton btn_pesquisaServico;
+    private javax.swing.JButton btn_voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

@@ -66,6 +66,7 @@ public class MarcarServico extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         btnCadastrar1 = new javax.swing.JButton();
         btnCadastroCadastrar2 = new javax.swing.JButton();
+        btn_limpar = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtEndereco = new javax.swing.JTextArea();
         cbxEmpresa = new javax.swing.JComboBox<>();
@@ -84,6 +85,8 @@ public class MarcarServico extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         txtHorario = new javax.swing.JTextField();
         txtData = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -276,6 +279,13 @@ public class MarcarServico extends javax.swing.JFrame {
             }
         });
 
+        btn_limpar.setText("Limpar");
+        btn_limpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_limparActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -283,17 +293,23 @@ public class MarcarServico extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(btnCadastroCadastrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btn_limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCadastrar1)
                 .addGap(27, 27, 27))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnCadastroCadastrar2, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                    .addComponent(btnCadastrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnCadastroCadastrar2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCadastrar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btn_limpar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -314,6 +330,7 @@ public class MarcarServico extends javax.swing.JFrame {
             }
         });
 
+        cbxPrestador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar" }));
         cbxPrestador.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbxPrestadorItemStateChanged(evt);
@@ -382,6 +399,10 @@ public class MarcarServico extends javax.swing.JFrame {
             }
         });
 
+        jLabel17.setText("2000-00-00");
+
+        jLabel18.setText("00:00:00");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -421,9 +442,15 @@ public class MarcarServico extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16)
-                            .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel17)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -447,11 +474,15 @@ public class MarcarServico extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -563,9 +594,11 @@ public class MarcarServico extends javax.swing.JFrame {
     private void btnCadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrar1ActionPerformed
         
         CadastrarServico(novoServico);
+        JOptionPane.showMessageDialog (null, "O numero do seu Serviço é: " + resgatarNumeroServico());
+        limpaCampos();
         this.txtRazao.setText("");
         this.txtCNPJ.setText("");
-        this.txtCidade.setText("");
+        this.txt_Cidade.setText("");
         this.txtEndereco1.setText("");
         this.cbxEstado.setSelectedIndex(0);
     }//GEN-LAST:event_btnCadastrar1ActionPerformed
@@ -576,8 +609,12 @@ public class MarcarServico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastroCadastrar2ActionPerformed
 
     private void cbxEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEmpresaActionPerformed
-        buscarFuncionarios(cbxEmpresa.getSelectedIndex());
-        buscarServicos(cbxEmpresa.getSelectedIndex());
+
+
+        System.out.println("Index empresa: " + cbxEmpresa.getSelectedIndex());
+        System.out.println("Item na lista de id empresa: " + id_empresa.get(cbxEmpresa.getSelectedIndex()-1));
+        buscarFuncionarios(id_empresa.get(cbxEmpresa.getSelectedIndex()-1));
+        buscarServicos(id_empresa.get(cbxEmpresa.getSelectedIndex()-1));
     }//GEN-LAST:event_cbxEmpresaActionPerformed
 
     private void cbxPrestadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPrestadorActionPerformed
@@ -615,6 +652,11 @@ public class MarcarServico extends javax.swing.JFrame {
     private void cbxPrestadorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxPrestadorItemStateChanged
 
     }//GEN-LAST:event_cbxPrestadorItemStateChanged
+
+    private void btn_limparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_limparActionPerformed
+        // TODO add your handling code here:
+        limpaCampos();
+    }//GEN-LAST:event_btn_limparActionPerformed
     
     /**
      * @param args the command line arguments
@@ -657,6 +699,7 @@ public class MarcarServico extends javax.swing.JFrame {
     private javax.swing.JButton btnCadastroCadastrar1;
     private javax.swing.JButton btnCadastroCadastrar2;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btn_limpar;
     private javax.swing.JComboBox<String> cbxEmpresa;
     private javax.swing.JComboBox<String> cbxEstado;
     private javax.swing.JComboBox<String> cbxPrestador;
@@ -670,6 +713,8 @@ public class MarcarServico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -706,6 +751,24 @@ public class MarcarServico extends javax.swing.JFrame {
     Vector<Integer> id_Funcionario = new Vector<Integer>();
     Vector<Integer> id_Servico = new Vector<Integer>();
     
+    private int resgatarNumeroServico(){
+        int resultado = 0;
+         this.conectar.conectaBanco();
+        try{
+            var query = "select max(idServico) from Servico;";
+            
+            this.conectar.executarSQL(query);
+            while(this.conectar.getResultSet().next()){
+                resultado = this.conectar.getResultSet().getInt(1);
+            }
+            return resultado;
+        }catch(Exception erro){
+            System.out.println("Algum problema aconteceu ao buscar o numero registrado do serviço");
+            return resultado;
+        }             
+       
+    }
+    
     private void resgatarEmpresas(){
         this.conectar.conectaBanco();
         System.out.println("RODANDO RESGATAR EMPRESA");
@@ -738,7 +801,7 @@ public class MarcarServico extends javax.swing.JFrame {
         
         novoServico.setCpfCliente(Integer.parseInt(txtCPFCliente.getText()));
         novoServico.setEndereco(txtEndereco.getText());
-        novoServico.setCidade(txtCidade.getText());
+        novoServico.setCidade(txt_Cidade.getText());
         novoServico.setEstado((String) cmbEstado.getSelectedItem());
         
         
@@ -809,5 +872,21 @@ public class MarcarServico extends javax.swing.JFrame {
         }catch(Exception erro){
     
     }
+    }
+    
+    private void limpaCampos(){
+        txtCNPJ.setText("");
+        txtCPFCliente.setText("");
+        txtCidade.setText("");
+        txtData.setText("");
+        txtHorario.setText("");
+        txtEndereco.setText("");
+        txtNumeroServico.setText("");
+        txt_Cidade.setText("");
+        txtDescricao.setText("");
+        cbxServico.setModel(new DefaultComboBoxModel());
+        cbxEmpresa.setModel(new DefaultComboBoxModel());
+        cbxPrestador.setModel(new DefaultComboBoxModel());
+        cbxEstado.setSelectedIndex(0);
     }
 }

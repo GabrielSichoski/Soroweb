@@ -78,8 +78,8 @@ public class Login extends javax.swing.JFrame {
     private Boolean Logar(){
         String usuario = txtUsuario.getText();
         String senha = pwdSenha.getText();
-        String usuarioBanco = "";
-        String senhaBanco = "";
+        String usuarioBanco = null;
+        String senhaBanco = null;
         Boolean existe = false;
         this.conectar.conectaBanco();
         
@@ -495,7 +495,8 @@ public class Login extends javax.swing.JFrame {
             System.out.println("RODANDO LOGAR");
             menuzinho.Recebe(usuario,cargo);
             menuzinho.setVisible(true);
-            
+            usuario = "";
+            cargo = "";
             this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "ERRO AO LOGAR, Senha ou Usuario Errado");

@@ -309,6 +309,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisar Funcionario"));
 
+        txt_pesquisaCPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_pesquisaCPFActionPerformed(evt);
+            }
+        });
+
         txt_pesquisaRG.setEnabled(false);
 
         txt_pesquisaNome.setEnabled(false);
@@ -621,10 +627,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
        LimpaCamposBuscar();
         habilitaCamposPesquisas(false);
     }//GEN-LAST:event_btn_pesquisalimparActionPerformed
+
+    private void txt_pesquisaCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pesquisaCPFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_pesquisaCPFActionPerformed
     
     private void atualizaFuncionario(Funcionario novo){
         this.conectar.conectaBanco();
-        String consultaCpf = this.txt_pesquisaCPF.getText ();
+        String consultaCpf = this.txt_pesquisaCPF.getText();
         //nome,rg,email,telefone,endereco,cargo,senha,sexo,salario,estado_civil,cpf
         
         novo.setNome(txt_pesquisaNome.getText());

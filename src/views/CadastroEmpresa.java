@@ -614,6 +614,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         this.txtCidade.setText("");
         this.txtEndereco1.setText("");
         this.cbxEstado.setSelectedIndex(0);
+        this.txtNome.setText("");
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void txtBuscarEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarEstadoActionPerformed
@@ -651,6 +652,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         this.txtCidade.setText("");
         this.txtEndereco1.setText("");
         this.cbxEstado.setSelectedIndex(0);
+        this.txtNome.setText("");
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnBuscarDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDeletarActionPerformed
