@@ -38,6 +38,7 @@
                           <Component id="btn_PesquisarClientes1" pref="255" max="32767" attributes="0"/>
                           <Component id="btn_CadastrarEmpresa" pref="255" max="32767" attributes="0"/>
                           <Component id="btn_CadastrarServico" alignment="0" max="32767" attributes="0"/>
+                          <Component id="btn_pesquisaServico" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -56,7 +57,9 @@
               <Component id="btn_CadastrarEmpresa" min="-2" pref="84" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btn_CadastrarServico" min="-2" pref="78" max="-2" attributes="0"/>
-              <EmptySpace pref="156" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btn_pesquisaServico" min="-2" pref="63" max="-2" attributes="0"/>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -163,6 +166,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CadastrarServicoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_pesquisaServico">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pesquisa/Atualizar Servi&#xe7;o"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_pesquisaServicoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

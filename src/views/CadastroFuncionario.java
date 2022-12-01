@@ -7,6 +7,7 @@ import classes.Funcionario;
 import conexoes.MySQL;
 import java.util.HashSet;
 import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 /**
  *
@@ -51,9 +52,22 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         cmb_estadoCivil = new javax.swing.JComboBox<>();
         txt_confirmaSenha = new javax.swing.JTextField();
         btn_cadastrar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_LimpaCadastro = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
         cmb_Empresa = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txt_pesquisaCPF = new javax.swing.JTextField();
         txt_pesquisaRG = new javax.swing.JTextField();
@@ -71,22 +85,28 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         btn_apagar = new javax.swing.JButton();
         btn_pesquisalimpar = new javax.swing.JButton();
         cmb_pesquisaEmpresa = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastrar Funcionario"));
 
-        txt_Cpf.setText("CPF");
-
-        txt_nome.setText("Nome");
-
-        txt_rg.setText("RG");
-
-        txt_email.setText("Email");
-
-        txt_telefone.setText("Telefone");
-
-        txt_endereco.setText("Endereco");
+        txt_email.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_emailActionPerformed(evt);
+            }
+        });
 
         cmb_cargo.setBackground(new java.awt.Color(204, 204, 204));
         cmb_cargo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -97,8 +117,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
-        txt_senha.setText("Senha");
-
         cmb_sexo.setBackground(new java.awt.Color(204, 204, 204));
         cmb_sexo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cmb_sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "HELICOPTERO", "ADM", "Masculino", "Feminino" }));
@@ -107,8 +125,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 cmb_sexoActionPerformed(evt);
             }
         });
-
-        txt_salario.setText("salario");
 
         cmb_estadoCivil.setBackground(new java.awt.Color(204, 204, 204));
         cmb_estadoCivil.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -119,8 +135,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
-        txt_confirmaSenha.setText("Senha");
-
         btn_cadastrar.setText("CADASTRAR");
         btn_cadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +142,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("LIMPAR");
+        btn_LimpaCadastro.setText("LIMPAR");
+        btn_LimpaCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LimpaCadastroActionPerformed(evt);
+            }
+        });
 
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
@@ -146,6 +165,32 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("CPF");
+
+        jLabel2.setText("Nome");
+
+        jLabel3.setText("RG");
+
+        jLabel4.setText("Email");
+
+        jLabel5.setText("Telefone");
+
+        jLabel6.setText("Endereço");
+
+        jLabel7.setText("Cargo");
+
+        jLabel8.setText("Senha");
+
+        jLabel9.setText("Repita a senha");
+
+        jLabel10.setText("Sexo");
+
+        jLabel11.setText("Salario");
+
+        jLabel12.setText("Estado Civil");
+
+        jLabel13.setText("Empresa");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -154,100 +199,140 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txt_salario, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_senha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_confirmaSenha))
+                        .addComponent(txt_confirmaSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txt_Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_nome)
                                 .addComponent(txt_rg, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txt_email)
-                                .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_endereco)
-                                .addComponent(cmb_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(cmb_sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(btn_cadastrar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btn_LimpaCadastro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_voltar))
+                            .addComponent(txt_salario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txt_nome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                                .addComponent(txt_endereco, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(150, 150, 150)
+                                .addComponent(jLabel9))
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(150, 150, 150)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(cmb_estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cmb_Empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 46, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(5, 5, 5)
                 .addComponent(txt_Cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(4, 4, 4)
                 .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_rg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmb_cargo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_confirmaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmb_sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_salario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmb_estadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmb_Empresa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_cadastrar)
-                    .addComponent(jButton2)
+                    .addComponent(btn_LimpaCadastro)
                     .addComponent(btn_voltar))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Pesquisar Funcionario"));
 
-        txt_pesquisaCPF.setText("CPF");
+        txt_pesquisaRG.setEnabled(false);
 
-        txt_pesquisaRG.setText("RG");
+        txt_pesquisaNome.setEnabled(false);
 
-        txt_pesquisaNome.setText("Nome");
-
-        txt_pesquisaEmail.setText("Email");
+        txt_pesquisaEmail.setEnabled(false);
         txt_pesquisaEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_pesquisaEmailActionPerformed(evt);
             }
         });
 
-        txt_pesquisaEndereco.setText("Endereco");
+        txt_pesquisaEndereco.setEnabled(false);
 
-        txt_pesquisaTelefone.setText("Telefone");
+        txt_pesquisaTelefone.setEnabled(false);
 
-        txt_pesquisaCargo.setText("Cargo");
+        txt_pesquisaCargo.setEnabled(false);
 
-        txt_pesquisaSenha.setText("Senha");
+        txt_pesquisaSenha.setEnabled(false);
 
-        txt_pesquisaSexo.setText("Sexo");
+        txt_pesquisaSexo.setEnabled(false);
 
-        txt_pesquisaEstadoCivil.setText("Estado civil");
+        txt_pesquisaEstadoCivil.setEnabled(false);
 
-        txt_pesquisaSalario.setText("salario");
+        txt_pesquisaSalario.setEnabled(false);
 
         btn_pesquisar.setText("PESQUISAR");
         btn_pesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -257,6 +342,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         btn_atualizar.setText("ATUALIZAR");
+        btn_atualizar.setEnabled(false);
         btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_atualizarActionPerformed(evt);
@@ -264,6 +350,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         btn_apagar.setText("APAGAR");
+        btn_apagar.setEnabled(false);
         btn_apagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_apagarActionPerformed(evt);
@@ -271,6 +358,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         btn_pesquisalimpar.setText("LIMPAR");
+        btn_pesquisalimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pesquisalimparActionPerformed(evt);
+            }
+        });
 
         cmb_pesquisaEmpresa.setBackground(new java.awt.Color(204, 204, 204));
         cmb_pesquisaEmpresa.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -282,6 +374,30 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
+        jLabel14.setText("CPF");
+
+        jLabel15.setText("Nome");
+
+        jLabel16.setText("RG");
+
+        jLabel17.setText("Email");
+
+        jLabel18.setText("Telefone");
+
+        jLabel19.setText("Endereço");
+
+        jLabel20.setText("Cargo");
+
+        jLabel21.setText("Senha");
+
+        jLabel22.setText("Sexo");
+
+        jLabel23.setText("Salario");
+
+        jLabel24.setText("Estado Civil");
+
+        jLabel25.setText("Empresa");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -289,15 +405,15 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmb_pesquisaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btn_pesquisar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_atualizar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_apagar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_pesquisalimpar))
                     .addComponent(txt_pesquisaSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_pesquisaEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_pesquisaSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -308,43 +424,78 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                     .addComponent(txt_pesquisaEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_pesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_pesquisaRG, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_pesquisaCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addComponent(txt_pesquisaCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btn_pesquisar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_atualizar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_apagar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_pesquisalimpar))
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel16)
+                .addGap(1, 1, 1)
                 .addComponent(txt_pesquisaRG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
+                .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel20)
+                .addGap(3, 3, 3)
                 .addComponent(txt_pesquisaCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(jLabel22)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_pesquisaSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23)
+                .addGap(2, 2, 2)
                 .addComponent(txt_pesquisaSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
+                .addComponent(jLabel24)
+                .addGap(1, 1, 1)
                 .addComponent(txt_pesquisaEstadoCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel25)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cmb_pesquisaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_pesquisar)
                     .addComponent(btn_atualizar)
                     .addComponent(btn_apagar)
                     .addComponent(btn_pesquisalimpar))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -361,11 +512,14 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -381,8 +535,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -423,11 +577,28 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_pesquisarActionPerformed
 
     private void btn_apagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_apagarActionPerformed
-        DeletaFuncionario(novoFuncionario);
+        if (JOptionPane.showConfirmDialog(null, "Tem certeza?", "Apagar Funcionario CPF: " + novoFuncionario.getCpf() ,
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+           JOptionPane.showMessageDialog (null, "Cliente Deletado");
+            DeletaFuncionario(novoFuncionario);
+            habilitaCamposPesquisas(false);
+            novoFuncionario.LimpaFuncionario();
+} else {
+}
     }//GEN-LAST:event_btn_apagarActionPerformed
 
     private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
-        atualizaFuncionario(novoFuncionario);
+        if (JOptionPane.showConfirmDialog(null, "Atualizar registro", "Atualizar Funcionario CPF: " + novoFuncionario.getCpf() ,
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+           JOptionPane.showMessageDialog (null, "Cliente Atualizado");
+           novoFuncionario.LimpaFuncionario();
+            atualizaFuncionario(novoFuncionario);
+            habilitaCamposPesquisas(false);
+            novoFuncionario.LimpaFuncionario();
+            LimpaCamposBuscar();
+} else {
+            
+}   
     }//GEN-LAST:event_btn_atualizarActionPerformed
 
     private void cmb_EmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_EmpresaActionPerformed
@@ -437,6 +608,19 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private void cmb_pesquisaEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_pesquisaEmpresaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_pesquisaEmpresaActionPerformed
+
+    private void txt_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_emailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_emailActionPerformed
+
+    private void btn_LimpaCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimpaCadastroActionPerformed
+            LimpaCamposCadastrar();
+    }//GEN-LAST:event_btn_LimpaCadastroActionPerformed
+
+    private void btn_pesquisalimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pesquisalimparActionPerformed
+       LimpaCamposBuscar();
+        habilitaCamposPesquisas(false);
+    }//GEN-LAST:event_btn_pesquisalimparActionPerformed
     
     private void atualizaFuncionario(Funcionario novo){
         this.conectar.conectaBanco();
@@ -488,11 +672,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             this.conectar.updateSQL (deletarCpf);
             System.out.println(deletarCpf);
             
-            
+            LimpaCamposBuscar();
             
         } catch (Exception e) {
             System.out.println("Erro ao Deletar Cliente"+ e.getMessage());
-            JOptionPane.showMessageDialog (null, "Erro ao Deletar Funcionario");
+            JOptionPane.showMessageDialog (null, "Erro ao Deletar Funcionario, cheque se o CPF é valido");
         }
     }
     
@@ -523,6 +707,8 @@ public class CadastroFuncionario extends javax.swing.JFrame {
              
              if(novo.getCpf() == ""){
                  JOptionPane.showMessageDialog(null, "Erro ao buscar Cliente");
+             }else{
+                 habilitaCamposPesquisas(true);
              }
         }catch(Exception e){
             System.out.println("Erro ao consultar Cliente " + e.getMessage());
@@ -579,6 +765,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             this.conectar.insertSQL(query);
                     
             JOptionPane.showMessageDialog (null, "Cadastro Realizado com Sucesso!!");
+            LimpaCamposCadastrar();
         } catch (Exception e ){
             System.out.println("Erro ao Cadastrar Cliente  " + e.getMessage());
             JOptionPane.showMessageDialog (null, "Erro ao Cadastrar Funcionario!");
@@ -630,6 +817,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_LimpaCadastro;
     private javax.swing.JButton btn_apagar;
     private javax.swing.JButton btn_atualizar;
     private javax.swing.JButton btn_cadastrar;
@@ -641,7 +829,31 @@ public class CadastroFuncionario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmb_estadoCivil;
     private javax.swing.JComboBox<String> cmb_pesquisaEmpresa;
     private javax.swing.JComboBox<String> cmb_sexo;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -688,5 +900,53 @@ Vector<Integer> id_empresa = new Vector<Integer>();
         }finally{
             
         }
+    }
+    
+    
+    private void LimpaCamposCadastrar(){
+    
+        txt_Cpf.setText("");
+        txt_nome.setText("");
+        txt_email.setText("");
+        txt_endereco.setText("");
+        txt_rg.setText("");
+        txt_senha.setText("");
+        txt_confirmaSenha.setText("");
+        txt_salario.setText("");
+        txt_telefone.setText("");
+        cmb_Empresa.setSelectedIndex(0);
+        cmb_cargo.setSelectedIndex(0);
+        cmb_estadoCivil.setSelectedIndex(0);
+        cmb_sexo.setSelectedIndex(0);
+    }
+    
+    private void LimpaCamposBuscar(){
+        txt_pesquisaCPF.setText("");
+        txt_pesquisaCargo.setText("");
+        txt_pesquisaEmail.setText("");
+        txt_pesquisaEndereco.setText("");
+        txt_pesquisaNome.setText("");
+        txt_pesquisaEstadoCivil.setText("");
+        txt_pesquisaRG.setText("");
+        txt_pesquisaSalario.setText("");
+        txt_pesquisaTelefone.setText("");
+        txt_pesquisaSexo.setText("");
+        cmb_Empresa.setSelectedIndex(0);
+        cmb_pesquisaEmpresa.setModel(new DefaultComboBoxModel());
+    }
+    
+    private void habilitaCamposPesquisas(Boolean acao){
+        txt_pesquisaNome.setEnabled(acao);
+        txt_pesquisaEmail.setEnabled(acao);
+        txt_pesquisaEndereco.setEnabled(acao);
+        txt_pesquisaRG.setEnabled(acao);
+        txt_pesquisaEstadoCivil.setEnabled(acao);
+        txt_pesquisaSalario.setEnabled(acao);
+        txt_pesquisaSexo.setEnabled(acao);
+        txt_pesquisaSenha.setEnabled(acao);
+        txt_pesquisaTelefone.setEnabled(acao);
+        txt_pesquisaCargo.setEnabled(acao);
+        btn_apagar.setEnabled(acao);
+        btn_atualizar.setEnabled(acao);
     }
 }

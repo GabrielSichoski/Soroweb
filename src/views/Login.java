@@ -7,7 +7,8 @@ import conexoes.MySQL;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import classes.Logado;
+import javax.swing.JOptionPane;
 
 
 
@@ -485,7 +486,10 @@ public class Login extends javax.swing.JFrame {
          Boolean logar = Logar();
          String usuario = txtUsuario.getText();
          String cargo = recebeCargo();
-         if(cargo.equals("Erro")) cargo = "Cliente";
+         
+         if(cargo.equals("Erro")) cargo = "Cliente"; Logado.setCargo(cargo); 
+         Logado.setCargo(cargo);
+         Logado.setNome(usuario);
         Menu menuzinho = new Menu();
         if(logar){
             System.out.println("RODANDO LOGAR");
@@ -494,7 +498,7 @@ public class Login extends javax.swing.JFrame {
             
             this.dispose();
         }else{
-            System.out.println("LOGAR N DEU CERTO");
+            JOptionPane.showMessageDialog(null, "ERRO AO LOGAR, Senha ou Usuario Errado");
         }
     }//GEN-LAST:event_btn_entrarActionPerformed
 

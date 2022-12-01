@@ -3,14 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package views;
-
+import classes.Logado;
 /**
  *
  * @author fekwa
  */
 public class Menu extends javax.swing.JFrame {
-    String cargoMenu = "null";
-    String userMenu = "null";
+    String cargoMenu = Logado.getCargo();
+    String userMenu = Logado.getNome();
     /**
      * Creates new form Menu
      */
@@ -18,7 +18,10 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         if(cargoMenu.equals("Adm")){
             btn_cadastrarFuncionario.setEnabled(true);
+           
         }else{btn_cadastrarFuncionario.setEnabled(false);}
+        lbl_cargo.setText(cargoMenu);
+        lbl_user.setText(userMenu);
     }
 
     /**
@@ -39,6 +42,7 @@ public class Menu extends javax.swing.JFrame {
         btn_CadastrarEmpresa = new javax.swing.JButton();
         btn_PesquisarClientes1 = new javax.swing.JButton();
         btn_CadastrarServico = new javax.swing.JButton();
+        btn_pesquisaServico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +114,13 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btn_pesquisaServico.setText("Pesquisa/Atualizar Serviço");
+        btn_pesquisaServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_pesquisaServicoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -127,7 +138,8 @@ public class Menu extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btn_PesquisarClientes1, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                             .addComponent(btn_CadastrarEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
-                            .addComponent(btn_CadastrarServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btn_CadastrarServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_pesquisaServico, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -141,7 +153,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btn_CadastrarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_CadastrarServico, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_pesquisaServico, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -174,6 +188,12 @@ public class Menu extends javax.swing.JFrame {
         servico.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btn_CadastrarServicoActionPerformed
+
+    private void btn_pesquisaServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pesquisaServicoActionPerformed
+        BuscarServiço bservico = new BuscarServiço();
+        bservico.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btn_pesquisaServicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,10 +233,6 @@ public class Menu extends javax.swing.JFrame {
     }
     
     public void Recebe(String user, String cargo){
-        lbl_user.setText(user);
-        lbl_cargo.setText(cargo);
-        cargoMenu = cargo;
-        userMenu = user;
         
         if(cargoMenu.equals("Adm")){
             btn_cadastrarFuncionario.setEnabled(true);
@@ -228,6 +244,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_CadastrarServico;
     private javax.swing.JButton btn_PesquisarClientes1;
     private javax.swing.JButton btn_cadastrarFuncionario;
+    private javax.swing.JButton btn_pesquisaServico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

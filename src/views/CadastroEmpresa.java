@@ -271,6 +271,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
         jLabel8.setText("Nome");
 
+        txtBuscarNome.setEnabled(false);
         txtBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarNomeActionPerformed(evt);
@@ -281,6 +282,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
         jLabel10.setText("Cidade");
 
+        txtBuscarCidade.setEnabled(false);
         txtBuscarCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarCidadeActionPerformed(evt);
@@ -303,6 +305,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
             }
         });
 
+        txtBuscarEstado.setEnabled(false);
         txtBuscarEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtBuscarEstadoActionPerformed(evt);
@@ -312,9 +315,11 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         txt_buscaEndereco.setColumns(20);
         txt_buscaEndereco.setLineWrap(true);
         txt_buscaEndereco.setRows(5);
+        txt_buscaEndereco.setEnabled(false);
         jScrollPane1.setViewportView(txt_buscaEndereco);
 
         btnBuscarDeletar.setText("Deletar");
+        btnBuscarDeletar.setEnabled(false);
         btnBuscarDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarDeletarActionPerformed(evt);
@@ -322,6 +327,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         });
 
         btnBuscarAtualizar.setText("Atualizar");
+        btnBuscarAtualizar.setEnabled(false);
         btnBuscarAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarAtualizarActionPerformed(evt);
@@ -587,10 +593,11 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private void btnBuscarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarBuscarActionPerformed
         // TODO add your handling code here:
             buscarEmpresa(novoEmpresa);
+            habilitarCampos(true);
     }//GEN-LAST:event_btnBuscarBuscarActionPerformed
 
     private void bntBuscarLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntBuscarLimparActionPerformed
-        // TODO add your handling code here:
+        habilitarCampos(false);
         novoEmpresa.limpaEmpresa();
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
@@ -614,9 +621,17 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtBuscarEstadoActionPerformed
 
     private void btnBuscarAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAtualizarActionPerformed
-        // TODO add your handling code here:
-        atualizarEmpresa(novoEmpresa);
-        novoEmpresa.limpaEmpresa();
+         if (JOptionPane.showConfirmDialog(null, "Atualizar registro", "Atualizar a Empresa:: " + novoEmpresa.getNome() + " ?" ,
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            atualizarEmpresa(novoEmpresa);
+            novoEmpresa.limpaEmpresa();
+             habilitarCampos(false);
+             JOptionPane.showMessageDialog (null, "Empresa Atualizada");
+         }else{
+             JOptionPane.showMessageDialog (null, "Algum erro aconteceu");        
+         }
+        
+        
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
@@ -639,9 +654,15 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     private void btnBuscarDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDeletarActionPerformed
-        // TODO add your handling code here:
-        deletarEmpresa(novoEmpresa);
+       if (JOptionPane.showConfirmDialog(null, "Deletar Registro", "Deletar a Empresa:: " + novoEmpresa.getNome() + " ?" ,
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+           deletarEmpresa(novoEmpresa);
         novoEmpresa.limpaEmpresa();
+        JOptionPane.showMessageDialog (null, "Empresa Apagada");
+       }else{
+           JOptionPane.showMessageDialog (null, "Algo deu errado ao tentar apagar a empresa");
+       }
+        
         this.txtBuscarNome.setText("");
         this.txtBuscaCNPJ.setText("");
         this.txtBuscarCidade.setText("");
@@ -789,5 +810,14 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         }
         id_trabalho.clear();
         
+    }
+    
+    private void habilitarCampos(Boolean acao){
+        txtBuscarEstado.setEnabled(acao);
+        txtBuscarCidade.setEnabled(acao);
+        txtBuscarNome.setEnabled(acao);
+        btnBuscarAtualizar.setEnabled(acao);
+        btnBuscarDeletar.setEnabled(acao);
+        txt_buscaEndereco.setEnabled(acao);
     }
 }
